@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Learn Sum Math!</title>
+        <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+       
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+		<link rel="stylesheet" href="calcStyle.css">
+        <style>
+			#tip {
+				 cursor: pointer
+			}
+			@font-face {
+                font-family: Emulogic;
+                src: url(emulogic.ttf);
+            }
+            
+            * {
+                font-family: Emulogic;
+            }
+			html, body {
+			  height: 98%;
+			  margin: 0;
+			  font-size: 20px;
+			}
+			.wrapper {
+			  min-height: 100%;
+			  margin-bottom: -50px;
+			}
+			.footer,
+			.push {
+			  height: 50px;
+			  color: #000000;
+			}
+			#fourthButton, #thirdButton, #fifthButton, #sixthButton, #algebraButton{
+					font-size: 35px;
+			}
+			button {
+				font-size: 50px;
+				color: #ffffff;
+				display: block;
+				text-align: center;
+				backGround-color: #000000;
+				width: 100%;
+				height: 75px;
+				margin-bottom: 15px;
+			}
+			
+			#topDiv {
+				backGround-color: #000000;
+				color: #fff;
+			}
+			
+            #inputNumber, #guessNumber {
+                resize: none;
+                font-size: 15px; 
+                width:150px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+			#inputDiv {
+				text-align: center;
+			}
+            #showMathQuestion {
+				text-align: center;
+				
+			}
+		
+		    input {
+		        font-size: 14px;
+		    }
+			#resultsOfMathQuestion {
+				position: relative;
+				overflow: hidden;
+				text-align: center;
+  padding-top:60%;
+			
+			}
+			 #resultsOfMathQuestion iframe {
+			     
+                border: 0;
+                height: 100%;
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 100%;
+			}
+			hr {
+			    border: none;
+			    height: 2px;
+			    color: #000000;
+			    background-color: #000000;
+			}
+
+			#fullNumberGuess {
+				resize: none;
+				font-size: 19px;
+				
+			}
+			#numeratorGuess {
+				resize: none;
+				font-size: 19px;
+				
+			}
+			#denominatorGuess {
+				resize: none;
+				font-size: 19px;
+			}
+			
+			.inline-div {
+				display:inline-block;
+			}
+			#footerLinks {
+				text-align: center;
+			}
+			#footerLinks i{
+				color: #000;
+				padding-left: 20px;
+			}
+			#jokeDiv {
+				overflow: hidden;
+				text-align: center;
+			}
+			h1 {
+				font-size: 18px;
+			}
+			p {
+               margin: 0px;
+               padding: 0px;
+            }
+			#fireworks {
+			    background-color: #000000;
+			}
+			
+			.panel-heading {
+				backGround-color: #000000;
+				color: #ffffff;
+				text-align: center;
+			}
+			
+			.panel-collapse a {
+				text-align: center;
+				color: #000000;
+			}
+			h2 {
+				text-align: center;
+				font-size: 16px;
+			}
+			#scoreBoard {
+				backGround-color: #000000;
+				color: #ffffff;
+				font-size: 13px;
+			}
+			
+			#score {
+				text-align: right;
+				
+			}
+		    #gameOverContainer h3{
+				backGround-color: #000000;
+				color: #ffffff;
+				font-size: 10px;
+				margin: 0px;
+		    }
+		    #correctAnswerDiv h3{
+		        font-size: 14px;
+		        text-align: center;
+		    }
+        </style>
+    </head>
+    <body>
+        <div id="gameOverContainer"></div>
+        <div id="musicDiv"></div>
+        <div id="sound"></div>
+        <div id="scoreBoard"></div>
+		<div class="col-lg-12" id="topDiv">
+		    <img src="img/marioBricks.jpg" style="width:100%">
+			<div id="inputDiv">
+			    <h1>Choose Type of Math</h1>
+			</div>
+			
+		    <img src="img/marioBricksBase.jpg" style="width:100%">
+		</div>
+			<div class="col-lg-12">
+				<div id="showMathQuestion"></div>
+			</div>
+			<div id="correctAnswerDiv"></div>
+			<div class="col-lg-12"  id="resultsOfMathQuestion" style="display:none"></div>
+
+		<div class="navigationButtons">
+			<div class="panel-group" id="accordion">
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+							<h2>3rd Grade <img class="headerPicPipe" src="img/warp-pipe.png" style="height:25px" hidden>
+							<img class="headerPicPlant" src="img/carnivorous-plant.png"  style="height:35px"></h2></a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse">
+						<div class="panel-body">
+							<h2 id="multiplyLink" onClick=linkClick(this.id)><a href="#">Multiply</a></h2>
+							<h2 id="divisionLink" onClick=linkClick(this.id)><a href="#">Division</a></h2>
+							<h2 id="twoDigitMultiplyLink" onClick=linkClick(this.id)><a href="#">2 Digit Multiply</a></h2>
+							<h2 id="roundingLink" onClick=linkClick(this.id)><a href="#">Rounding</a></h2>
+							<h2 id="fractionAddLink" onClick=linkClick(this.id)><a href="#">Adding Fractions</a></h2>
+							<h2 id="fractionSimplifyLink" onClick=linkClick(this.id)><a href="#">
+									Simplify Fractions</a></h2>
+							<h2 id="romanNumeralLink" onClick=linkClick(this.id)><a href="#">Roman Numerals</a></h2>
+							<h2 id="tellTimeLink" onClick=linkClick(this.id)><a href="#">Tell Time</a></h2>
+							<h2 id="timeMathLink" onClick=linkClick(this.id)><a href="#">Time Math</a></h2>
+							
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							<h2>4th Grade <img class="headerPicPipe" src="img/warp-pipe.png" style="height:25px" hidden>
+							<img class="headerPicPlant" src="img/carnivorous-plant.png"  style="height:35px"></h2></a>
+						</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+						<div class="panel-body">
+							<h2 id="longDivisionLink" onClick=linkClick(this.id)><a href="#">Long Division</a></h2> 
+							<h2 id="multiplyWithNegativesLink" onClick=linkClick(this.id)><a href="#">
+								Multiplication (w/-)</a></h2>
+							<h2 id="divisionWithNegativesLink" onClick=linkClick(this.id)><a href="#">
+								Division (w/-)</a></h2>
+							<h2 id="pemdasSolvingLink" onClick=linkClick(this.id)><a href="#">
+								P.E.M.D.A.S.</a></h2>
+							<h2 id="decimalAddLink" onClick=linkClick(this.id)><a href="#">
+								Decimal Addition</a></h2>
+							<h2 id="fractionToDecimalLink" onClick=linkClick(this.id)><a href="#">
+								Fraction to Decimal</a></h2>
+							<h2 id="gcfLink" onClick=linkClick(this.id)><a href="#">
+								Greatest Common Factor</a></h2>
+							<h2 id="percentLink" onClick=linkClick(this.id)><a href="#">Percentages</a></h2>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+							<h2>5th Grade <img class="headerPicPipe" src="img/warp-pipe.png" style="height:25px" hidden>
+							<img class="headerPicPlant" src="img/carnivorous-plant.png"  style="height:35px"></h2></a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse">
+						<div class="panel-body">
+							<h2 id="fractionMultiplyLink" onClick=linkClick(this.id)><a href="#">
+								Fraction Multiplication</a></h2>
+							<h2 id="fractionDivisionLink" onClick=linkClick(this.id)><a href="#">
+								Fraction Division</a></h2>
+							<h2 id="decimalMultiplyLink" onClick=linkClick(this.id)><a href="#">
+								Decimal Multiplication</a></h2>
+							<h2 id="exponentSolvingLink" onClick=linkClick(this.id)><a href="#">Exponents</a></h2>
+							<h2 id="squareRootLink" onClick=linkClick(this.id)><a href="#">Square Roots</a></h2>
+							<h2 id="sequenceLink" onClick=linkClick(this.id)><a href="#">Sequences</a></h2>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+							<h2>6th Grade <img class="headerPicPipe" src="img/warp-pipe.png" style="height:25px" hidden>
+							<img class="headerPicPlant" src="img/carnivorous-plant.png"  style="height:35px"></h2></a>
+						</h4>
+					</div>
+					<div id="collapseFour" class="panel-collapse collapse">
+						<div class="panel-body">
+							<h2 id="addThousandsLink" onClick=linkClick(this.id)><a href="#">Adding Thousands</a></h2>
+							<h2 id="negativeExponentLink" onClick=linkClick(this.id)><a href="#">Negative Exponents</a></h2>
+							<h2 id="threeDigitMultiplyLink" onClick=linkClick(this.id)><a href="#">3 Digit Multiply</a></h2>				
+							<h2 id="medianLink" onClick=linkClick(this.id)><a href="#">Median (Middle)</a></h2>
+							<h2 id="meanLink" onClick=linkClick(this.id)><a href="#">Mean (Average)</a></h2>
+							<h2 id="factoringLink" onClick=linkClick(this.id)><a href="#">Factors</a></h2>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+							<h2>Algebra <img class="headerPicPipe" src="img/warp-pipe.png" style="height:25px" hidden>
+							<img class="headerPicPlant" src="img/carnivorous-plant.png"  style="height:35px"></h2></a>
+						</h4>
+					</div>
+					<div id="collapseFive" class="panel-collapse collapse">
+						<div class="panel-body">
+							<h2 id="factorialLink" onClick=linkClick(this.id)><a href="#">Factorial</a></h2>
+							<h2 id="simpleEquationLink" onClick=linkClick(this.id)><a href="#">Simple Equations</a></h2>
+							<h2 id="foilLink" onClick=linkClick(this.id)><a href="#">F.O.I.L.</a></h2>
+							<h2 id="logarithmLink" onClick=linkClick(this.id)><a href="#">Logarithms</a></h2>
+							<h2 id="pythagoreanLink" onClick=linkClick(this.id)><a href="#">Pythagorean Theorem</a></h2>
+							<h2 id="factoringEquationLink" onClick=linkClick(this.id)><a href="#">Factoring Equations</a></h2>
+							<h2 id="permutationLink" onClick=linkClick(this.id)><a href="#">Permutation</a></h2>
+							<h2 id="combinationLink" onClick=linkClick(this.id)><a href="#">Combination</a></h2>
+							<h2 id="slopeLink" onClick=linkClick(this.id)><a href="#">Slope</a></h2>							
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-inverse">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+							<h2>Challenges <img class="headerPicPipe" src="img/warp-pipe.png" style="height:25px" hidden>
+							<img class="headerPicPlant" src="img/carnivorous-plant.png"  style="height:35px"></h2></a>
+						</h4>
+					</div>
+					<div id="collapseSix" class="panel-collapse collapse">
+						<div class="panel-body">
+							<h2 id="randomQuestionsLink" onClick=linkClick(this.id)>
+							    <img src="img/mario_SMB-bowser.gif" style="height:45px">
+							    <a href="#">Bowser's Castle</a>
+							    <img src="img/mario_SMB-bowser.gif" style="height:45px;transform: scaleX(-1);">
+							</h2>
+							<h2 id="multiplicationTimedLink" onClick=linkClick(this.id)>
+							    <img src="img/raccoonMario.gif" style="height:35px;transform: scaleX(-1);">
+							    <a href="#">Last Minute</a>
+							    <img src="img/marioFlying.gif" style="height:35px;">
+						    </h2>
+							<h2 id="trialByFireLink" onClick=linkClick(this.id)>
+							    <img src="img/fireball.gif" style="height:20px;transform: scaleX(-1);">
+							    <a href="#">Trial By Fire</a>
+							    <img src="img/fireball.gif" style="height:20px">
+						    </h2>					
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+
+		<div id="fireworks" hidden="true">
+			<canvas></canvas>
+		</div>
+		
+		
+		<footer class="footer">	
+		
+			<div class="col-lg-12" id="footerLinks">
+			    <br>
+				<a href="https://www.linkedin.com/in/mark-scherr"><i class="fab fa-linkedin" style="font-size:56px"></i></a>
+				<a href="https://github.com/MarkScherr"><i class="fab fa-github" style="font-size:56px"></i></a>	
+				<a href="#" id="mario"><img src="img/mushroom.png" style="height: 70px;margin-bottom: 30px;margin-left: 10px;"></a>
+			
+			</div>
+				<br>
+			<div id="jokeDiv"></div>
+			<div id="whiteSpace">
+                <br>
+                <br>
+			</div>
+		</footer>
+		
+        <script src="js/index.js"></script>
+        <script src="js/thirdGrade.js"></script>
+        <script src="js/fourthGrade.js"></script>
+        <script src="js/fifthGrade.js"></script>
+        <script src="js/sixthGrade.js"></script>
+        <script src="js/challenges.js"></script>
+        <script src="js/algebra.js"></script>
+        <script src="js/fireworks.js"></script>
+		<script>
+    
+	    $(document).ready(function(){
+        // Add minus icon for collapse element which is open by default
+        $(".collapse.in").each(function(){
+        	$(this).siblings(".panel-heading").find(".fab").addClass("fa-empire").removeClass("fa-mandalorian");
+        	$(this).parent().find('.headerPicPlant').show();
+    		$(this).parent().find('.headerPicPipe').hide();
+        	
+        });
+        
+        // Toggle plus minus icon on show hide of collapse element
+        $(".collapse").on('show.bs.collapse', function(){
+        	$(this).parent().find(".fab").removeClass("fa-mandalorian").addClass("fa-empire"); 	
+        	$(this).parent().find('.headerPicPlant').hide();
+    		$(this).parent().find('.headerPicPipe').show();
+    		$('#sound').append('<audio autoplay><source src="sound/smb_pipe.wav" type="audio/wav"></audio>');
+        }).on('hide.bs.collapse', function(){
+        	$(this).parent().find(".fab").removeClass("fa-empire").addClass("fa-mandalorian");
+    	 	$(this).parent().find('.headerPicPlant').show();
+    		$(this).parent().find('.headerPicPipe').hide();
+        });
+    });
+</script>
+</html>
