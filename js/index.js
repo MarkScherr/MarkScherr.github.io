@@ -6,6 +6,7 @@ var wrongAnswers = 0;
 var highScore = 0;
 var isCorrect = false;
 var isPerfect = true;
+var numberGuessed = -1;
 var simplifiedNumerator = 0;
 var simplifiedDenominator = 0;
 var simplifiedFullNumber = 0;
@@ -106,44 +107,18 @@ function randomKeyPress() {
     });
 }
 
-function shawnKeypress(type) {
+function socialStudiesKeypress(type, totalQuestions, socialStudiesAnswers) {
+    numberGuessed = $("#guessNumber").val();
+    console.log("number guessed: " + numberGuessed);
+    console.log(correctAnswer);
+    socialStudiesGuess(numberGuessed, socialStudiesAnswers);
+    correctAnswer = -1;
+    if(count < totalQuestions) {
+        window[type + "Question"]();
+    } else {
+        checkFinalAnswer();
+    }
     
-     $("#submitButton").on("click", function(){
-			numberGuessed = $("#guessNumber").val();
-            console.log(correctAnswer)
-            console.log(numberGuessed);
-            correctAnswer = numberGuessed * correctAnswer;
-            console.log(correctAnswer)
-            guess(numberGuessed);
-            
-            if(type == "canToUs") {
-                canToUsQuestion();
-            } else if(type == 'gasPrice'){
-                gasPriceQuestion();
-            }else {
-                literToGallonQuestion();
-            }
-    });
-    
-    $("#guessNumber").keypress(function(e){
-        if(e.which === 13) {
-            e.preventDefault();
-            numberGuessed = $("#guessNumber").val();
-            console.log(correctAnswer)
-            console.log(numberGuessed);
-            correctAnswer = numberGuessed * correctAnswer;
-            console.log(correctAnswer)
-            guess(numberGuessed);
-            
-            if(type == "canToUs") {
-                canToUsQuestion();
-            } else if(type == 'gasPrice'){
-                gasPriceQuestion();
-            }else {
-                literToGallonQuestion();
-            }
-        }
-    });
 }
 function backwardsWritingKeypress(type , totalQuestions) {
      $("#submitButton").on("click", function(){
@@ -711,6 +686,28 @@ function checkAnswer() {
 	  $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/HufVcQG2AFx9m"' +
 										'frameBorder="0" class="giphy-embed"></iframe><audio autoplay><source src="sound/smb_mariodie.wav" type="audio/wav"></audio>');
 	}
+}
+
+function socialStudiesGuess(guessedNumber, socialStudiesAnswers) {
+    if(parseFloat(guessedNumber) == parseFloat(correctAnswer)) {
+        isCorrect = true;
+    } else {
+        isCorrect = false;
+    }
+    $('#resultsOfMathQuestion').empty();
+    $('#correctAnswerDiv').empty();
+    $('#resultsOfMathQuestion').show();
+    if(isCorrect) {
+        correctAnswers++;
+        $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/n7GGXbQA59hfi" frameBorder="0" class=' + 
+        '"giphy-embed"></iframe><audio autoplay><source src="sound/smb_coin.wav" type="audio/wav"></audio>');
+    
+    } else {    
+      wrongAnswers++;
+      $('#correctAnswerDiv').append('<h3>Correct Answer: ' + socialStudiesAnswers[correctAnswer] + '</h3>');
+      $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/HufVcQG2AFx9m"' +
+                                        'frameBorder="0" class="giphy-embed"></iframe><audio autoplay><source src="sound/smb_mariodie.wav" type="audio/wav"></audio>');
+    }
 }
 
 function results() {

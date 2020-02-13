@@ -137,6 +137,7 @@ function trialByFireQuestion() {
     }
 	
 }
+
 function checkTime() {
     if(myTimer.minutes == 0 && myTimer.seconds == 0) {
         if(correctAnswers < 50) {
@@ -193,4 +194,94 @@ function timerFunction(minutes, seconds) {
     });
 	
     myTimer.start();
+}
+
+
+
+//////////////////////////////////////Social Studies////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+function socialStudiesQuestion() {
+    infoType = 'socialStudies';
+    var input = $('#inputDiv');
+    var socialStudiesQuestions = [
+    "Long ago, why did people build lighthouses?",
+    "What animal lives in swamps in the SE?",
+    "What is made from wood in the SE?",
+    "What are some crops in the SE?",
+    "What SE state is a major producer of peanuts?",
+    "What natural resources in the SE do power plants burn for energy?",
+    "Where is the fall line located?",
+    "What state borders the Gulf of Mexico and the Atlantic Ocean?",
+    "What area is very flat, low elevation, and different kinds of wetlands?",
+    "How are the inner coastal plains different from the outer coastal plains?",
+    "What has the highest elevation in the SE?",
+    "Name landforms found in the SE:",
+    "What mountain ranges are part of the Appalachians?",
+    "What word best describes the climate of the SE?",
+    "Describe a hurricane:"
+    ]
+    var socialStudiesAnswers = [
+    "To help ships avoid rocky coastlines.",
+    "Aligator",
+    "Boards for furniture and paper pulp.",
+    "Cotton, corn, peanuts, rice, oranges, soybean",
+    "Georgia",
+    "Coal",
+    "Between Piedmont and the Coastal Plains.",
+    "Florida",
+    "Outer Coastal Plains",
+    "Inner has higher elevation and closer inland.",
+    "Mt. Mitchell, North Carolina",
+    "Mountains, plains, beaches, wetlands, and island keys",
+    "Blue Ridge Mountains and the Great Smoky Mountains",
+    "Fucking Hunter can't write out his homework is properly",
+    "Harsh, violent storm that forms over the ocean from June to November"
+    ]
+    input.empty();
+    do {
+        correctAnswer = getRandom(0, 15);
+        console.log(correctAnswer);
+        
+    } while(previousNumbers.indexOf(correctAnswer) > -1);
+
+    previousNumbers.push(correctAnswer);
+    var incorrectAnswers = [];
+    var incorrectAnswer = -1;
+    incorrectAnswers.push(correctAnswer);
+    for (var i = 0 ; i < 3 ; i++) {
+            do {
+                incorrectAnswer = getRandom(0,15);
+            } while(incorrectAnswers.indexOf(incorrectAnswer) > -1);
+            incorrectAnswers.push(incorrectAnswer);
+            incorrectAnswer = -1;
+    }
+    console.log(incorrectAnswers);
+    
+    input.append('<div class="socialStudies" margin: 0 auto;"><h4  style="font-size:14px">' + 
+        socialStudiesQuestions[correctAnswer] +'</h4></div><hr color="white" size="10"/>');
+    var answerSelections = [];
+
+    for (let i = 0 ; i < 4 ; i++) {
+        var currentIndex = i;
+        do {
+            var currentAnswer = getRandom(0,4);
+        } while (answerSelections.indexOf(currentAnswer) > -1);
+
+        answerSelections.push(currentAnswer);
+
+        console.log(incorrectAnswers[currentAnswer]);
+        input.append('<div id="' + incorrectAnswers[currentAnswer] + 'answer"<h6 style="font-size:12px">' + socialStudiesAnswers[incorrectAnswers[currentAnswer]] + '</h6></div><br>');
+        createOnClickForAnswer(incorrectAnswers[currentAnswer], input, socialStudiesAnswers);
+
+    }
+}
+
+function createOnClickForAnswer(guess, input, socialStudiesAnswers) {
+        $('#' + guess + 'answer').on('click', function() {
+            console.log(guess);
+            input.append('<input id="guessNumber" type="hidden" value="' + guess + '" />');
+            socialStudiesKeypress(infoType, 15, socialStudiesAnswers);
+            count++;
+        });
 }
