@@ -281,7 +281,7 @@ function createOnClickForAnswer(guess, input, socialStudiesAnswers) {
         $('#' + guess + 'answer').on('click', function() {
             console.log(guess);
             input.append('<input id="guessNumber" type="hidden" value="' + guess + '" />');
-            socialStudiesKeypress(infoType, 15, socialStudiesAnswers);
             count++;
+            socialStudiesKeypress(infoType, 15, socialStudiesAnswers);
         });
 }
