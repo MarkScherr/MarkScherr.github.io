@@ -235,7 +235,7 @@ function socialStudiesQuestion() {
     "Mt. Mitchell, North Carolina",
     "Mountains, plains, beaches, wetlands, and island keys",
     "Blue Ridge Mountains and the Great Smoky Mountains",
-    "Fucking Hunter can't write out his homework is properly",
+    "Fucking Hunter can't write out his homework properly",
     "Harsh, violent storm that forms over the ocean from June to November"
     ]
     input.empty();
