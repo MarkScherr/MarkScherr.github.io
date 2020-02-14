@@ -206,20 +206,30 @@ function socialStudiesQuestion() {
     var input = $('#inputDiv');
     var socialStudiesQuestions = [
     "Long ago, why did people build lighthouses?",
-    "What animal lives in swamps in the SE?",
-    "What is made from wood in the SE?",
-    "What are some crops in the SE?",
-    "What SE state is a major producer of peanuts?",
-    "What natural resources in the SE do power plants burn for energy?",
+    "What animal lives in swamps in the Southeast America?",
+    "What is made from wood in the Southeast America?",
+    "What are some crops in the Southeast America?",
+    "What Southeast America state is a major producer of peanuts?",
+    "What natural resources in the Southeast America do power plants burn for energy?",
     "Where is the fall line located?",
     "What state borders the Gulf of Mexico and the Atlantic Ocean?",
     "What area is very flat, low elevation, and different kinds of wetlands?",
     "How are the inner coastal plains different from the outer coastal plains?",
-    "What has the highest elevation in the SE?",
-    "Name landforms found in the SE:",
+    "What has the highest elevation in the Southeast America?",
+    "Name landforms found in the Southeast America:",
     "What mountain ranges are part of the Appalachians?",
-    "What word best describes the climate of the SE?",
-    "Describe a hurricane:"
+    "What word best describes the climate of the Southeast America?",
+    "Describe a hurricane:",
+    "What is an island that formed from deposits of sand and mud",
+    "What marks the boundary between the Piedmont and the coastal plains?",
+    "What fuel that is formed in the Earth from the remains of plants or animals?",
+    "What is the period from June to the beginning of November when hurricanes usually occur",
+    "What is a combination of ground-up woodchips, water, and chemicals?",
+    "What is a low island called?",
+    "What are lands that are at times covered in water?",
+    "What is the name of a violent storm that forms over the ocean?",
+    "What is something that is no longer existing called?",
+    "What is a kind of animal or plant that is thought to be dying out?"
     ]
     var socialStudiesAnswers = [
     "To help ships avoid rocky coastlines.",
@@ -236,22 +246,31 @@ function socialStudiesQuestion() {
     "Mountains, plains, beaches, wetlands, and island keys",
     "Blue Ridge Mountains and the Great Smoky Mountains",
     "Humid",
-    "Harsh, violent storm that forms over the ocean from June to November"
+    "Harsh, violent storm that forms over the ocean from June to November",
+    "Barrier islands",
+    "Fall line",
+    "Fossil fuel",
+    "Hurricane season",
+    "Pulp",
+    "Key",
+    "Wetlands",
+    "Hurricane",
+    "Extinct",
+    "Endangered Species"
     ]
     input.empty();
     do {
-        correctAnswer = getRandom(0, 15);
-        console.log(correctAnswer);
-        
+        correctAnswer = getRandom(0, 25);
     } while(previousNumbers.indexOf(correctAnswer) > -1);
 
     previousNumbers.push(correctAnswer);
     var incorrectAnswers = [];
     var incorrectAnswer = -1;
     incorrectAnswers.push(correctAnswer);
+    var prefixes = ["A. ", "B. ", "C. ", "D. "]
     for (var i = 0 ; i < 3 ; i++) {
             do {
-                incorrectAnswer = getRandom(0,15);
+                incorrectAnswer = getRandom(0,25);
             } while(incorrectAnswers.indexOf(incorrectAnswer) > -1);
             incorrectAnswers.push(incorrectAnswer);
             incorrectAnswer = -1;
@@ -270,8 +289,8 @@ function socialStudiesQuestion() {
 
         answerSelections.push(currentAnswer);
 
-        console.log(incorrectAnswers[currentAnswer]);
-        input.append('<div id="' + incorrectAnswers[currentAnswer] + 'answer"<h6 style="font-size:12px">' + socialStudiesAnswers[incorrectAnswers[currentAnswer]] + '</h6></div><br>');
+        input.append('<div id="' + incorrectAnswers[currentAnswer] + 'answer"<h6 align="left" style="font-size:12px">' + 
+        prefixes[i] + socialStudiesAnswers[incorrectAnswers[currentAnswer]] + '</h6></div><br>');
         createOnClickForAnswer(incorrectAnswers[currentAnswer], input, socialStudiesAnswers);
 
     }
@@ -279,9 +298,8 @@ function socialStudiesQuestion() {
 
 function createOnClickForAnswer(guess, input, socialStudiesAnswers) {
         $('#' + guess + 'answer').on('click', function() {
-            console.log(guess);
             input.append('<input id="guessNumber" type="hidden" value="' + guess + '" />');
             count++;
-            socialStudiesKeypress(infoType, 15, socialStudiesAnswers);
-        });
+            socialStudiesKeypress(infoType, 25, socialStudiesAnswers);
+        })
 }
