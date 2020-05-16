@@ -677,14 +677,15 @@ function checkAnswer() {
 	$('#resultsOfMathQuestion').show();
 	if(isCorrect) {
 		correctAnswers++;
-	    $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/n7GGXbQA59hfi" frameBorder="0" class=' + 
+	    $('#resultsOfMathQuestion').append('<img src="img/coin.gif" frameBorder="0" class=' + 
 	    '"giphy-embed"></iframe><audio autoplay><source src="sound/smb_coin.wav" type="audio/wav"></audio>');
 	
 	} else {	
 	  wrongAnswers++;
 	  $('#correctAnswerDiv').append('<h3>Correct Answer: ' + correctAnswer + '</h3>');
-	  $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/HufVcQG2AFx9m"' +
-										'frameBorder="0" class="giphy-embed"></iframe><audio autoplay><source src="sound/smb_mariodie.wav" type="audio/wav"></audio>');
+	  $('#resultsOfMathQuestion').append('<img src="img/death.gif"' +
+										'frameBorder="0" class="giphy-embed">' +
+                                        '<audio autoplay><source src="sound/smb_mariodie.wav" type="audio/wav"></audio>');
 	}
 }
 
