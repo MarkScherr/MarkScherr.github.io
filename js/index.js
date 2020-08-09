@@ -31,7 +31,7 @@ $("#mario").on('click', function() {
 });
 
 function linkClick(id) {
-    $('#sound').append('<audio autoplay><source src="sound/smb3_enter_level.wav" type="audio/wav"></audio>');
+    $('#sound').append('<audio autoplay><source src="sound/smb/smb3_enter_level.wav" type="audio/wav"></audio>');
     console.log(id.slice(0, -4));
     refreshSite();
     name = id.slice(0, -4);
@@ -250,7 +250,7 @@ function checkFinalAnswer() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function tipClick() {
-    $('#inputDiv').append('<audio autoplay><source src="sound/smb_jump-small.wav" type="audio/wav"></audio>');
+    $('#inputDiv').append('<audio autoplay><source src="sound/smb/smb_jump-small.wav" type="audio/wav"></audio>');
     setTimeout(function() {
     	switch(infoType) {
     		case "multiply":
@@ -678,14 +678,14 @@ function checkAnswer() {
 	if(isCorrect) {
 		correctAnswers++;
 	    $('#resultsOfMathQuestion').append('<img src="img/coin.gif" frameBorder="0" class=' + 
-	    '"giphy-embed"></iframe><audio autoplay><source src="sound/smb_coin.wav" type="audio/wav"></audio>');
+	    '"giphy-embed"></iframe><audio autoplay><source src="sound/smb/smb_coin.wav" type="audio/wav"></audio>');
 	
 	} else {	
 	  wrongAnswers++;
 	  $('#correctAnswerDiv').append('<h3>Correct Answer: ' + correctAnswer + '</h3>');
 	  $('#resultsOfMathQuestion').append('<img src="img/death.gif"' +
 										'frameBorder="0" class="giphy-embed">' +
-                                        '<audio autoplay><source src="sound/smb_mariodie.wav" type="audio/wav"></audio>');
+                                        '<audio autoplay><source src="sound/smb/smb_mariodie.wav" type="audio/wav"></audio>');
 	}
 }
 
@@ -701,13 +701,13 @@ function socialStudiesGuess(guessedNumber, socialStudiesAnswers) {
     if(isCorrect) {
         correctAnswers++;
         $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/n7GGXbQA59hfi" frameBorder="0" class=' + 
-        '"giphy-embed"></iframe><audio autoplay><source src="sound/smb_coin.wav" type="audio/wav"></audio>');
+        '"giphy-embed"></iframe><audio autoplay><source src="sound/smb/smb_coin.wav" type="audio/wav"></audio>');
     
     } else {    
       wrongAnswers++;
       $('#correctAnswerDiv').append('<h3>Correct Answer: ' + socialStudiesAnswers[correctAnswer] + '</h3>');
       $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/HufVcQG2AFx9m"' +
-                                        'frameBorder="0" class="giphy-embed"></iframe><audio autoplay><source src="sound/smb_mariodie.wav" type="audio/wav"></audio>');
+                                        'frameBorder="0" class="giphy-embed"></iframe><audio autoplay><source src="sound/smb/smb_mariodie.wav" type="audio/wav"></audio>');
     }
 }
 
@@ -744,11 +744,11 @@ function results() {
 	            $('#resultsOfMathQuestion').append('<iframe src="https://giphy.com/embed/Mzz3M7dfHEQVi"' +
 		        'frameBorder="0" class="giphy-embed"></iframe>');
 		    }
-		    $('#gameOverContainer').append('<audio autoplay><source src="sound/smb_gameover.wav" type="audio/wav"></audio>')
+		    $('#gameOverContainer').append('<audio autoplay><source src="sound/smb/smb_gameover.wav" type="audio/wav"></audio>')
 		    gameOverClick();
 		    $("#footerLinks").hide();
 		} else { 
-		    $('#fireworks').append('<audio autoplay><source src="sound/smb_stage_clear.wav" type="audio/wav"></audio>');
+		    $('#fireworks').append('<audio autoplay><source src="sound/smb/smb_stage_clear.wav" type="audio/wav"></audio>');
 			$('#fireworks').show();
 			a = new Fireworks();
 			a.run();
@@ -821,7 +821,7 @@ function showMario() {
 
 function calcButton() {
     $("#calc").on('click', function(){
-        $('#sound').append('<audio autoplay><source src="sound/smb_kick.wav" type="audio/wav"></audio>');
+        $('#sound').append('<audio autoplay><source src="sound/smb/smb_kick.wav" type="audio/wav"></audio>');
         if(document.getElementById("calculator")) {
             $("#calculator").remove();
         } else {
