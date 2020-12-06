@@ -140,8 +140,34 @@ function getPersonsGift(key) {
 	return playerToPresentMap[key].toString();
 }
 
+function getGiftIndexGrayScale() {
+	var giftsTaken = [];
+	if(playerToPresentMap["A"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(100);
+	}
+	if(playerToPresentMap["B"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(100);
+	}
+	if(playerToPresentMap["C"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(100);
+	}
+	if(playerToPresentMap["D"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(100);
+	}
+	return giftsTaken;
+}
+
 function setCarousel() {
 	emptyDivs();
+	var giftsTaken = getGiftIndexGrayScale();
 	var aOwner = getPersonsGift("A");
 	var bOwner = getPersonsGift("B");
 	var cOwner = getPersonsGift("C");
@@ -163,26 +189,26 @@ function setCarousel() {
   <div class="carousel-inner">
 	    <div class="item active" id="a">
   	<div class="container">
-	      <img id="a" src="img/presents/A.jpg">
+	      <img id="a" src="img/presents/A.jpg" style="-webkit-filter: grayscale(` + giftsTaken[0] + `%);filter: grayscale(` + giftsTaken[0] + `%);">
 	      <div class="centered">` + aOwner + `</div>
 	    </div>
     </div>
 
 	    <div class="item" id="b">
   	<div class="container">
-	      <img src="img/presents/B.jpg">
+	      <img src="img/presents/B.jpg style="-webkit-filter: grayscale(` + giftsTaken[1] + `%);filter: grayscale(` + giftsTaken[1] + `%);">
 	      <div class="centered">` + bOwner + `</div>
     	</div>
     </div>
 
 	    <div class="item" id="c">
   	<div class="container">
-	      <img src="img/presents/C.jpg">
+	      <img src="img/presents/C.jpg" style="-webkit-filter: grayscale(` + giftsTaken[2] + `%);filter: grayscale(` + giftsTaken[2] + `%);>
 	      <div class="centered">` + cOwner + `</div>
 	    </div>
     </div>
 
-		<div class="item" id="d">
+		<div class="item" id="d" style="-webkit-filter: grayscale(` + giftsTaken[3] + `%);filter: grayscale(` + giftsTaken[3] + `%);>
   	<div class="container">
 	      <img src="img/presents/D.jpg">
 	      <div class="centered">` + dOwner + `</div>
