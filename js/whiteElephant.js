@@ -156,22 +156,22 @@ function getGiftIndexGrayScale(playerToPresentMap) {
 	if(playerToPresentMap["A"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(50);
+		giftsTaken.push(75);
 	}
 	if(playerToPresentMap["B"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(50);
+		giftsTaken.push(75);
 	}
 	if(playerToPresentMap["C"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(50);
+		giftsTaken.push(75);
 	}
 	if(playerToPresentMap["D"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(50);
+		giftsTaken.push(75);
 	}
 	return giftsTaken;
 }
