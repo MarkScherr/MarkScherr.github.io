@@ -187,21 +187,21 @@ function setCarousel(playerToPresentMap) {
 	emptyDivs();
 	var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
 	var aOwner = getPersonsGift(playerToPresentMap, "A");
-	var bOwner = getPersonsGift("B");
-	var cOwner = getPersonsGift("C");
-	var dOwner = getPersonsGift("D");
-	var eOwner = getPersonsGift("E");
-	var fOwner = getPersonsGift("F");
-	var gOwner = getPersonsGift("G");
-	var hOwner = getPersonsGift("H");
-	var iOwner = getPersonsGift("I");
-	var jOwner = getPersonsGift("J");
-	var kOwner = getPersonsGift("K");
-	var lOwner = getPersonsGift("L");
-	var mOwner = getPersonsGift("M");
-	var nOwner = getPersonsGift("N");
-	var oOwner = getPersonsGift("O");
-	var pOwner = getPersonsGift("P");
+	var bOwner = getPersonsGift(playerToPresentMap, "B");
+	var cOwner = getPersonsGift(playerToPresentMap, "C");
+	var dOwner = getPersonsGift(playerToPresentMap, "D");
+	var eOwner = getPersonsGift(playerToPresentMap, "E");
+	var fOwner = getPersonsGift(playerToPresentMap, "F");
+	var gOwner = getPersonsGift(playerToPresentMap, "G");
+	var hOwner = getPersonsGift(playerToPresentMap, "H");
+	var iOwner = getPersonsGift(playerToPresentMap, "I");
+	var jOwner = getPersonsGift(playerToPresentMap, "J");
+	var kOwner = getPersonsGift(playerToPresentMap, "K");
+	var lOwner = getPersonsGift(playerToPresentMap, "L");
+	var mOwner = getPersonsGift(playerToPresentMap, "M");
+	var nOwner = getPersonsGift(playerToPresentMap, "N");
+	var oOwner = getPersonsGift(playerToPresentMap, "O");
+	var pOwner = getPersonsGift(playerToPresentMap, "P");
 
 	$("#presentDiv").append(`<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
