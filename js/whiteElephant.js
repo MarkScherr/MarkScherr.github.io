@@ -218,35 +218,11 @@ function setCarousel() {
 }
 
 function sendPresentSelectionToServer() {
-	var currentPresent = getCurrentVisiblePresent()
-	// var outgoingData = {
-	// 	"name": playerName,
-	// 	"giftName": numberToLetterMap[currentPresent]
-	// };
-	// $.post(base_url + "/person", JSON.stringify({
- //        name: playerName,
- //        giftName: numberToLetterMap[currentPresent]      
- //    }), "json");
-	$.ajax({
-    type: 'POST',
-    url: base_url + '/person',       
-    data: JSON.stringify({
-        name: playerName,
-        giftName: numberToLetterMap[currentPresent]      
-    }),
-	headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-		'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE, PUT',
-		'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization'
-	},              
-    dataType: 'json',
-    success: function(){
-    	console.log(true);
-    }
-});
+	var currentPresent = getCurrentVisiblePresent();
+	var currentPresentLetter = numberToLetterMap[currentPresent];
+	$.get(base_url + "/person/" + playerName + "/" + currentPresentLetter, function(data, status){});
 }
+
 // function setTimerOfDice() {
 //     $("#diceButton").attr("disabled", true);
 //     setTimeout(function() { enableSubmit("#diceButton") }, (9 - playerToPresentMap.length) * 0);
