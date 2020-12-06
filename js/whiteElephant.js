@@ -160,12 +160,6 @@ function setCarousel() {
 	var pOwner = getPersonsGift("P");
 
 	$("#presentDiv").append(`<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-  </ol>
   <div class="carousel-inner">
 	    <div class="item active" id="a">
   	<div class="container">
