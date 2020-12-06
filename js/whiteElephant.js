@@ -127,14 +127,19 @@ function getCurrentVisiblePresent() {
 
 function getGiftsFromServer() {
 	emptyDivs();
-	var playerToPresentMap = {};
 	$.get(base_url + "/person/all", function(data, status){
-		for(var i = 0 ; i < data.length ; i++) {
-			playerToPresentMap[data[i].giftName] = data[i].name;
-		}
+		playerToPresentMap = createPlayerPresentMap(data);
 	  	console.log(playerToPresentMap);
 	  	return playerToPresentMap;
   	});
+}
+
+function createPlayerPresentMap(data) {
+	var playerToPresentMap = {};
+	for(var i = 0 ; i < data.length ; i++) {
+		playerToPresentMap[data[i].giftName] = data[i].name;
+	}
+	  	return playerToPresentMap;
 }
 
 function getPersonsGift(playerToPresentMap, key) {
