@@ -130,7 +130,7 @@ function getGiftsFromServer() {
 	emptyDivs();
 	let playerToPresentMap = {}
 	$.get(base_url + "/person/all", function(data, status){
-		let playerToPresentMap = createPlayerPresentMap(data);
+		playerToPresentMap = createPlayerPresentMap(data);
 	  	console.log(playerToPresentMap);
   	});
 
@@ -143,7 +143,7 @@ function createPlayerPresentMap(data) {
 	for(var i = 0 ; i < data.length ; i++) {
 		playerToPresentMap[data[i].giftName] = data[i].name;
 	}
-	
+
 		console.log(playerToPresentMap);
 	  	return playerToPresentMap;
 }
