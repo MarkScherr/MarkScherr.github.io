@@ -168,28 +168,28 @@ function setCarousel() {
   <div class="carousel-inner">
 	    <div class="item active" id="a">
   	<div class="container">
-	      <img id="a" src="img/presents/a.jpg">
+	      <img id="a" src="img/presents/A.jpg">
 	      <div class="centered">` + aOwner + `</div>
 	    </div>
     </div>
 
 	    <div class="item" id="b">
   	<div class="container">
-	      <img src="img/presents/b.jpg">
+	      <img src="img/presents/B.jpg">
 	      <div class="centered">` + bOwner + `</div>
     	</div>
     </div>
 
 	    <div class="item" id="c">
   	<div class="container">
-	      <img src="img/presents/c.jpg">
+	      <img src="img/presents/C.jpg">
 	      <div class="centered">` + cOwner + `</div>
 	    </div>
     </div>
 
 		<div class="item" id="d">
   	<div class="container">
-	      <img src="img/presents/d.jpg">
+	      <img src="img/presents/D.jpg">
 	      <div class="centered">` + dOwner + `</div>
 	    </div>
     </div>
