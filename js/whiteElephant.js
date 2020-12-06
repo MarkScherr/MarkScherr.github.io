@@ -168,6 +168,7 @@ function getGiftIndexGrayScale() {
 function setCarousel() {
 	emptyDivs();
 	var giftsTaken = getGiftIndexGrayScale();
+	alert(giftsTaken);
 	var aOwner = getPersonsGift("A");
 	var bOwner = getPersonsGift("B");
 	var cOwner = getPersonsGift("C");
