@@ -134,6 +134,7 @@ function callServer(dice) {
 	let playerToPresentMap = {};	
  	$.get(base_url + "/person/all", function(data, status){
 		for(var i = 0 ; i < data.length ; i++) {
+			alert(data[i].giftName);
 			playerToPresentMap[data[i].giftName] = data[i].name;
 		}
 	  	console.log(playerToPresentMap);
