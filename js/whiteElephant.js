@@ -66,9 +66,7 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	if (greenDie === redDie) {
-		const playerToPresentMap = getGiftsFromServer();
-		console.log(playerToPresentMap);
-		unleashThePresents(playerToPresentMap, greenDie);
+		getGiftsFromServer(greenDie);
 	}
 	// setTimerOfDice();
 
@@ -126,30 +124,26 @@ function getCurrentVisiblePresent() {
 	return imageId;
 }
 
-function getGiftsFromServer() {
+function getGiftsFromServer(dice) {
 	emptyDivs();
-	let playerToPresentMap = {}
-	$.get(base_url + "/person/all", function(data, status){
-		playerToPresentMap = createPlayerPresentMap(data);
+	callServer(dice)
+	// when(playerToPresentMap = callServer()).done(return playerToPresentMap);
+}
+
+function callServer(dice) {
+	let playerToPresentMap = {};	
+ 	$.get(base_url + "/person/all", function(data, status){
+		for(var i = 0 ; i < data.length ; i++) {
+			playerToPresentMap[data[i].giftName] = data[i].name;
+		}
 	  	console.log(playerToPresentMap);
-  	});
-
-	console.log(playerToPresentMap);
-  	return playerToPresentMap;
+	  	unleashThePresents(playerToPresentMap, dice);
+	});
 }
 
-function createPlayerPresentMap(data) {
-	let playerToPresentMap = {};
-	for(var i = 0 ; i < data.length ; i++) {
-		playerToPresentMap[data[i].giftName] = data[i].name;
-	}
-
-		console.log(playerToPresentMap);
-	  	return playerToPresentMap;
-}
 
 function getPersonsGift(playerToPresentMap, key) {
-		console.log(playerToPresentMap);
+	console.log(playerToPresentMap);
 	if(playerToPresentMap[key] == null) {
 		return "";
 	}
