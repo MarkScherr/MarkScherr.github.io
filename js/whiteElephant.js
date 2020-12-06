@@ -2,7 +2,7 @@ var playerName = '';
 var enableSubmit = function(ele) {
     $(ele).removeAttr("disabled");
 }
-var base_url = 'https://cors.io/?https://white-elephant20.herokuapp.com';
+var base_url = 'https://white-elephant20.herokuapp.com';
 var numberToLetterMap = {
 	"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H","9":"I","10":"J","11":"K","12":"L","13":"M","14":"N","15":"O","16":"P",
 };
