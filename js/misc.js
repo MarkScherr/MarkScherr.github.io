@@ -23,3 +23,7 @@ function setClickFunction(soundId) {
 		 	$('#' + soundId).append('<audio autoplay><source src="sound/parent/' + soundId + '.wav" type="audio/wav"></audio>');
 		});
 }
+
+function whiteElephantQuestion() {
+	whiteElephant();
+}

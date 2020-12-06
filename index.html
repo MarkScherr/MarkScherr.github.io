@@ -10,13 +10,14 @@ and open the template in the editor.
         <title>Learn Sum Math!</title>
         <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">  
-       
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
-		<link rel="stylesheet" href="calcStyle.css">
+
         <style>
 			#tip {
 				 cursor: pointer
@@ -186,6 +187,17 @@ and open the template in the editor.
 		        font-size: 14px;
 		        text-align: center;
 		    }
+		    .container {
+			  position: relative;
+			  text-align: center;
+			  color: #ffff00;
+			}
+			.centered {
+			  position: absolute;
+			  top: 5%;
+			  left: 50%;
+			  transform: translate(-50%, -50%);
+			}
         </style>
     </head>
     <body>
@@ -368,7 +380,10 @@ and open the template in the editor.
 						<div class="panel-body">
 				    		<h2 id="parentSoundBoardLink" onClick=linkClick(this.id)>
 							    <a href="#">Parent Soundboard :)</a>
-						    </h2>					
+						    </h2>				    		
+						    <h2 id="whiteElephantLink" onClick=linkClick(this.id)>
+							    <a href="#">White Elephant</a>
+						    </h2>							
 						</div>
 					</div>
 				</div>
@@ -407,6 +422,8 @@ and open the template in the editor.
         <script src="js/algebra.js"></script>
         <script src="js/fireworks.js"></script>
         <script src="js/misc.js"></script>
+        <script src="js/whiteElephant.js"></script>
+        <script src="js/swipeCode.min.js"></script>
 		<script>
     
 	    $(document).ready(function(){
