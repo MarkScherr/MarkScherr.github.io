@@ -85,7 +85,7 @@ function unleashThePresents(playerToPresentMap, dice) {
 
 function addGiftCarousel(playerToPresentMap){
 	$("#weDiv").append('<div id="presentDiv"></div>');
-	setTimeout(() => {  setCarousel(playerToPresentMap); }, 4000);
+	setCarousel(playerToPresentMap);
 }
 
 function makeSwipable() {
