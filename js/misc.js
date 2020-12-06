@@ -25,5 +25,8 @@ function setClickFunction(soundId) {
 }
 
 function whiteElephantQuestion() {
-	whiteElephant();
+	$(document).ready(function () {
+		$.ajaxSetup({cache: false});
+		whiteElephant();
+	});
 }
