@@ -132,9 +132,9 @@ function getGiftsFromServer() {
 		for(var i = 0 ; i < data.length ; i++) {
 			playerToPresentMap[data[i].giftName] = data[i].name;
 		}
+	  	console.log(playerToPresentMap);
+	  	return playerToPresentMap;
   	});
-  	console.log(playerToPresentMap);
-  	return playerToPresentMap;
 }
 
 function getPersonsGift(playerToPresentMap, key) {
