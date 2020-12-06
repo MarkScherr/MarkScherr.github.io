@@ -219,11 +219,14 @@ function setCarousel() {
 
 function sendPresentSelectionToServer() {
 	var currentPresent = getCurrentVisiblePresent()
-	var outgoingData = {
-		"name": playerName,
-		"giftName": numberToLetterMap[currentPresent]
-	};
-	// $.post(base_url + "/person", JSON.stringify(outgoingData), "json");
+	// var outgoingData = {
+	// 	"name": playerName,
+	// 	"giftName": numberToLetterMap[currentPresent]
+	// };
+	// $.post(base_url + "/person", JSON.stringify({
+ //        name: playerName,
+ //        giftName: numberToLetterMap[currentPresent]      
+ //    }), "json");
 	$.ajax({
     type: 'POST',
     url: base_url + '/person',       
@@ -233,7 +236,10 @@ function sendPresentSelectionToServer() {
     }),
 	headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+		'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, DELETE, PUT',
+		'Access-Control-Allow-Headers': 'append,delete,entries,foreach,get,has,keys,set,values,Authorization'
 	},              
     dataType: 'json',
     success: function(){
