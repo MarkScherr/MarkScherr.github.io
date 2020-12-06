@@ -67,6 +67,7 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	if (greenDie === redDie) {
 		const playerToPresentMap = getGiftsFromServer();
+		console.log(playerToPresentMap);
 		unleashThePresents(playerToPresentMap, greenDie);
 	}
 	// setTimerOfDice();
@@ -132,6 +133,8 @@ function getGiftsFromServer() {
 		let playerToPresentMap = createPlayerPresentMap(data);
 	  	console.log(playerToPresentMap);
   	});
+
+	console.log(playerToPresentMap);
   	return playerToPresentMap;
 }
 
@@ -140,10 +143,13 @@ function createPlayerPresentMap(data) {
 	for(var i = 0 ; i < data.length ; i++) {
 		playerToPresentMap[data[i].giftName] = data[i].name;
 	}
+	
+		console.log(playerToPresentMap);
 	  	return playerToPresentMap;
 }
 
 function getPersonsGift(playerToPresentMap, key) {
+		console.log(playerToPresentMap);
 	if(playerToPresentMap[key] == null) {
 		return "";
 	}
@@ -151,6 +157,7 @@ function getPersonsGift(playerToPresentMap, key) {
 }
 
 function getGiftIndexGrayScale(playerToPresentMap) {
+		console.log(playerToPresentMap);
 	var giftsTaken = [];
 	if(playerToPresentMap["A"] == null) {
 		giftsTaken.push(0);
@@ -176,6 +183,7 @@ function getGiftIndexGrayScale(playerToPresentMap) {
 }
 
 function setCarousel(playerToPresentMap) {
+		console.log(playerToPresentMap);
 	emptyDivs();
 	var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
 	var aOwner = getPersonsGift(playerToPresentMap, "A");
