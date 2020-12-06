@@ -223,7 +223,20 @@ function sendPresentSelectionToServer() {
 		"name": playerName,
 		"giftName": numberToLetterMap[currentPresent]
 	};
-	$.post(base_url + "/person", JSON.stringify(outgoingData), "json");
+	// $.post(base_url + "/person", JSON.stringify(outgoingData), "json");
+	$.ajax({
+    beforeSend: function(xhrObj){
+        xhrObj.setRequestHeader("Content-Type","application/json");
+        xhrObj.setRequestHeader("Accept","application/json");
+    },
+    type: "POST",
+    url: base_url + '/person',       
+    data: JSON.stringify(outgoingData),               
+    dataType: "json",
+    success: function(json){
+       console.log(json);
+    }
+});
 }
 // function setTimerOfDice() {
 //     $("#diceButton").attr("disabled", true);
