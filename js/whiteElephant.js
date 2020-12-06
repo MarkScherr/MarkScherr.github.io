@@ -85,7 +85,7 @@ function unleashThePresents(dice) {
 
 function addGiftCarousel(){
 	$("#weDiv").append('<div id="presentDiv"></div>');
-	setTimeout(() => {  setCarousel(); }, 2000);
+	setTimeout(() => {  setCarousel(); }, 4000);
 }
 
 function makeSwipable() {
