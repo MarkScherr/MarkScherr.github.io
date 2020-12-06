@@ -5,12 +5,11 @@ var playerName = '';
 var enableSubmit = function(ele) {
     $(ele).removeAttr("disabled");
 }
-var base_url = 'https://white-elephant20.herokuapp.com';
-var numberToLetterMap = {
+const base_url = 'https://white-elephant20.herokuapp.com';
+const numberToLetterMap = {
 	"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H","9":"I","10":"J","11":"K","12":"L","13":"M","14":"N","15":"O","16":"P",
 };
-var playerToPresentMap = {};
-var responseObject;
+
 function whiteElephant() {
 	$("body").empty();
 	$("body").append('<div id="weDiv" class="col-md-12"></div>');
@@ -67,14 +66,14 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	if (greenDie === redDie) {
-		getGiftsFromServer();
-		unleashThePresents(greenDie);
+		var playerToPresentMap = getGiftsFromServer();
+		unleashThePresents(playerToPresentMap, greenDie);
 	}
 	// setTimerOfDice();
 
 }
 
-function unleashThePresents(dice) {
+function unleashThePresents(playerToPresentMap, dice) {
 	emptyDivs();
 	$("#resultDiv").empty();
 	$("#rollDiceButton").hide();
@@ -83,12 +82,12 @@ function unleashThePresents(dice) {
 	} else {
 		$("#resultDiv").append('<h2>You rolled ' + dice + '\'s</h2>');		
 	}
-	addGiftCarousel();
+	addGiftCarousel(playerToPresentMap);
 }
 
-function addGiftCarousel(){
+function addGiftCarousel(playerToPresentMap){
 	$("#weDiv").append('<div id="presentDiv"></div>');
-	setTimeout(() => {  setCarousel(); }, 4000);
+	setTimeout(() => {  setCarousel(playerToPresentMap); }, 4000);
 }
 
 function makeSwipable() {
@@ -128,27 +127,24 @@ function getCurrentVisiblePresent() {
 
 function getGiftsFromServer() {
 	emptyDivs();
-	playerToPresentMap = {};
-	fetch(base_url + "/person/all", {mode: 'no-cors'})
-		  .then(function(response) {
-		  	responseObject = response;
-		    alert( response.length);
-		  });
+	var playerToPresentMap = {};
 	$.get(base_url + "/person/all", function(data, status){
 		for(var i = 0 ; i < data.length ; i++) {
 			playerToPresentMap[data[i].giftName] = data[i].name;
 		}
   	});
+  	console.log(playerToPresentMap);
+  	return playerToPresentMap;
 }
 
-function getPersonsGift(key) {
+function getPersonsGift(playerToPresentMap, key) {
 	if(playerToPresentMap[key] == null) {
 		return "";
 	}
 	return playerToPresentMap[key].toString();
 }
 
-function getGiftIndexGrayScale() {
+function getGiftIndexGrayScale(playerToPresentMap) {
 	var giftsTaken = [];
 	if(playerToPresentMap["A"] == null) {
 		giftsTaken.push(0);
@@ -173,11 +169,10 @@ function getGiftIndexGrayScale() {
 	return giftsTaken;
 }
 
-function setCarousel() {
+function setCarousel(playerToPresentMap) {
 	emptyDivs();
-	var giftsTaken = getGiftIndexGrayScale();
-	alert(giftsTaken);
-	var aOwner = getPersonsGift("A");
+	var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
+	var aOwner = getPersonsGift(playerToPresentMap, "A");
 	var bOwner = getPersonsGift("B");
 	var cOwner = getPersonsGift("C");
 	var dOwner = getPersonsGift("D");
