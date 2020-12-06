@@ -1,3 +1,6 @@
+$(document).ready(function () {
+	$.ajaxSetup({cache: false});
+});
 var playerName = '';
 var enableSubmit = function(ele) {
     $(ele).removeAttr("disabled");
@@ -7,7 +10,7 @@ var numberToLetterMap = {
 	"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H","9":"I","10":"J","11":"K","12":"L","13":"M","14":"N","15":"O","16":"P",
 };
 var playerToPresentMap = {};
-
+var responseObject;
 function whiteElephant() {
 	$("body").empty();
 	$("body").append('<div id="weDiv" class="col-md-12"></div>');
@@ -126,6 +129,11 @@ function getCurrentVisiblePresent() {
 function getGiftsFromServer() {
 	emptyDivs();
 	playerToPresentMap = {};
+	fetch(base_url + "/person/all", {mode: 'no-cors'})
+		  .then(function(response) {
+		  	responseObject = response;
+		    alert( response.length);
+		  });
 	$.get(base_url + "/person/all", function(data, status){
 		for(var i = 0 ; i < data.length ; i++) {
 			playerToPresentMap[data[i].giftName] = data[i].name;
@@ -145,22 +153,22 @@ function getGiftIndexGrayScale() {
 	if(playerToPresentMap["A"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(100);
+		giftsTaken.push(50);
 	}
 	if(playerToPresentMap["B"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(100);
+		giftsTaken.push(50);
 	}
 	if(playerToPresentMap["C"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(100);
+		giftsTaken.push(50);
 	}
 	if(playerToPresentMap["D"] == null) {
 		giftsTaken.push(0);
 	} else {
-		giftsTaken.push(100);
+		giftsTaken.push(50);
 	}
 	return giftsTaken;
 }
