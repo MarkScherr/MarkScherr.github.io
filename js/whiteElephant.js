@@ -66,7 +66,7 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	if (greenDie === redDie) {
-		let playerToPresentMap = getGiftsFromServer();
+		const playerToPresentMap = getGiftsFromServer();
 		unleashThePresents(playerToPresentMap, greenDie);
 	}
 	// setTimerOfDice();
@@ -127,11 +127,12 @@ function getCurrentVisiblePresent() {
 
 function getGiftsFromServer() {
 	emptyDivs();
+	let playerToPresentMap = {}
 	$.get(base_url + "/person/all", function(data, status){
 		let playerToPresentMap = createPlayerPresentMap(data);
 	  	console.log(playerToPresentMap);
-	  	return playerToPresentMap;
   	});
+  	return playerToPresentMap;
 }
 
 function createPlayerPresentMap(data) {
