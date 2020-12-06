@@ -225,16 +225,19 @@ function sendPresentSelectionToServer() {
 	};
 	// $.post(base_url + "/person", JSON.stringify(outgoingData), "json");
 	$.ajax({
-    beforeSend: function(xhrObj){
-        xhrObj.setRequestHeader("Content-Type","application/json");
-        xhrObj.setRequestHeader("Accept","application/json");
-    },
-    type: "POST",
+    type: 'POST',
     url: base_url + '/person',       
-    data: JSON.stringify(outgoingData),               
-    dataType: "json",
-    success: function(json){
-       console.log(json);
+    data: JSON.stringify({
+        name: playerName,
+        giftName: numberToLetterMap[currentPresent]      
+    }),
+	headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+	},              
+    dataType: 'json',
+    success: function(){
+    	console.log(true);
     }
 });
 }
