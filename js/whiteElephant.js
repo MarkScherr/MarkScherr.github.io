@@ -75,7 +75,6 @@ function rollDice() {
 function unleashThePresents(playerToPresentMap, dice) {
 	emptyDivs();
 	$("#resultDiv").empty();
-	$("#rollDiceButton").hide();
 	if (dice === 1) {
 		$("#resultDiv").append('<h2>You rolled SNAKE EYES!</h2>');
 	} else {
@@ -125,6 +124,7 @@ function getCurrentVisiblePresent() {
 }
 
 function getGiftsFromServer(dice) {
+	$("#rollDiceButton").hide();
 	emptyDivs();
 	callServer(dice)
 	// when(playerToPresentMap = callServer()).done(return playerToPresentMap);
@@ -132,14 +132,16 @@ function getGiftsFromServer(dice) {
 
 function callServer(dice) {
 	let playerToPresentMap = {};	
- 	$.get(base_url + "/person/all", function(data, status){
-		for(var i = 0 ; i < data.length ; i++) {
-			alert(data[i].giftName);
-			playerToPresentMap[data[i].giftName] = data[i].name;
-		}
-	  	console.log(playerToPresentMap);
-	  	unleashThePresents(playerToPresentMap, dice);
-	});
+    $(function () {	
+	 	$.get(base_url + "/person/all", function(data, status){
+			for(var i = 0 ; i < data.length ; i++) {
+				alert(data[i].giftName);
+				playerToPresentMap[data[i].giftName] = data[i].name;
+			}
+		  	console.log(playerToPresentMap);
+		  	unleashThePresents(playerToPresentMap, dice);
+		});
+	 });
 }
 
 
