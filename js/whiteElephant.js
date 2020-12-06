@@ -1,6 +1,4 @@
-$(document).ready(function () {
-	$.ajaxSetup({cache: false});
-});
+
 var playerName = '';
 var enableSubmit = function(ele) {
     $(ele).removeAttr("disabled");
@@ -135,10 +133,8 @@ function callServer(dice) {
     $(function () {	
 	 	$.get(base_url + "/person/all", function(data, status){
 			for(var i = 0 ; i < data.length ; i++) {
-				alert(data[i].giftName);
 				playerToPresentMap[data[i].giftName] = data[i].name;
 			}
-		  	console.log(playerToPresentMap);
 		  	unleashThePresents(playerToPresentMap, dice);
 		});
 	 });
@@ -146,7 +142,6 @@ function callServer(dice) {
 
 
 function getPersonsGift(playerToPresentMap, key) {
-	console.log(playerToPresentMap);
 	if(playerToPresentMap[key] == null) {
 		return "";
 	}
@@ -154,7 +149,6 @@ function getPersonsGift(playerToPresentMap, key) {
 }
 
 function getGiftIndexGrayScale(playerToPresentMap) {
-		console.log(playerToPresentMap);
 	var giftsTaken = [];
 	if(playerToPresentMap["A"] == null) {
 		giftsTaken.push(0);
@@ -180,7 +174,6 @@ function getGiftIndexGrayScale(playerToPresentMap) {
 }
 
 function setCarousel(playerToPresentMap) {
-		console.log(playerToPresentMap);
 	emptyDivs();
 	var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
 	var aOwner = getPersonsGift(playerToPresentMap, "A");
