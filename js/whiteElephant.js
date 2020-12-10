@@ -51,7 +51,6 @@ function refreshDice(diceToPlace) {
 
 function setDiceRollButton() {
 	$("#rollDiceButton").on("click", function(){
-		pressedRollButtonCount = 0;
 		rollDice();	
     });
 }
@@ -111,10 +110,12 @@ function makeSwipable() {
 function setButtonActions(dice) {
 	$("#selectPresentButton").on("click", function(){
 		sendPresentSelectionToServer();
+		setTimerOfDice();
 		refreshDice(dice);
     });
 	$("#cancelPresentSelectionButton").on("click", function(){
 		if (confirm("Are you sure you don't want a gift?")) {
+			setTimerOfDice();
 			refreshDice(dice);
 		}
     });
