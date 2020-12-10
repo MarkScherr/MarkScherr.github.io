@@ -26,8 +26,10 @@ function createLogin() {
 function setNameEnterButton() {
 	$("#enterName").on("click", function(){
 		playerName = $("#usr").val();
-		$("#usr").prop( "disabled", true );
-		$("#enterName").empty();
+		if (playerName != "") {
+			$("#usr").prop( "disabled", true );
+			$("#enterName").empty();
+		}
     });
 }
 
@@ -64,9 +66,10 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	if (greenDie === redDie) {
+		setTimerOfDice();
 		getGiftsFromServer(greenDie);
 	}
-	// setTimerOfDice();
+	
 
 }
 
@@ -140,121 +143,13 @@ function callServer(dice) {
 	 });
 }
 
-
-function getPersonsGift(playerToPresentMap, key) {
-	if(playerToPresentMap[key] == null) {
-		return "";
-	}
-	return playerToPresentMap[key].toString();
-}
-
-function getGiftIndexGrayScale(playerToPresentMap) {
-	var giftsTaken = [];
-	if(playerToPresentMap["A"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["B"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["C"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["D"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["E"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["F"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["G"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["H"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["I"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	if(playerToPresentMap["J"] == null) {
-		giftsTaken.push(0);
-	} else {
-		giftsTaken.push(75);
-	}
-	return giftsTaken;
-}
-
 function setCarousel(playerToPresentMap) {
 	emptyDivs();
 	let giftDivs = getGiftDivs(playerToPresentMap, 10);
 	console.log(giftDivs);
-	// var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
-	// var aOwner = getPersonsGift(playerToPresentMap, "A");
-	// var bOwner = getPersonsGift(playerToPresentMap, "B");
-	// var cOwner = getPersonsGift(playerToPresentMap, "C");
-	// var dOwner = getPersonsGift(playerToPresentMap, "D");
-	// var eOwner = getPersonsGift(playerToPresentMap, "E");
-	// var fOwner = getPersonsGift(playerToPresentMap, "F");
-	// var gOwner = getPersonsGift(playerToPresentMap, "G");
-	// var hOwner = getPersonsGift(playerToPresentMap, "H");
-	// var iOwner = getPersonsGift(playerToPresentMap, "I");
-	// var jOwner = getPersonsGift(playerToPresentMap, "J");
-	// var kOwner = getPersonsGift(playerToPresentMap, "K");
-	// var lOwner = getPersonsGift(playerToPresentMap, "L");
-	// var mOwner = getPersonsGift(playerToPresentMap, "M");
-	// var nOwner = getPersonsGift(playerToPresentMap, "N");
-	// var oOwner = getPersonsGift(playerToPresentMap, "O");
-	// var pOwner = getPersonsGift(playerToPresentMap, "P");
 
 	$("#presentDiv").append(`<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">` + giftDivs +
-  //   <div class="item active" id="a">
-  // 		<div class="container">
-	 //      <img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + giftsTaken[0] + `%);filter:grayscale(` + giftsTaken[0] + `%);">
-	 //      <div class="centered">` + aOwner + `</div>
-	 //    </div>
-  //   </div>
-
-  //   <div class="item" id="b">
-  // 		<div class="container">
-	 //      <img src="img/presents/B.jpg" style="-webkit-filter:grayscale(` + giftsTaken[1] + `%);filter:grayscale(` + giftsTaken[1] + `%);">
-	 //      <div class="centered">` + bOwner + `</div>
-  //   	</div>
-  //   </div>
-
-  //   <div class="item" id="c">
-  // 		<div class="container">
-	 //      <img src="img/presents/C.jpg" style="-webkit-filter: grayscale(` + giftsTaken[2] + `%);filter: grayscale(` + giftsTaken[2] + `%)";>
-	 //      <div class="centered">` + cOwner + `</div>
-	 //    </div>
-  //   </div>
-
-		// <div class="item" id="d">
-  // 	<div class="container">
-	 //      <img src="img/presents/D.jpg" style="-webkit-filter: grayscale(` + giftsTaken[3] + `%);filter: grayscale(` + giftsTaken[3] + `%)";>
-	 //      <div class="centered">` + dOwner + `</div>
-	 //    </div>
-  //   </div>
-  // </div>
   `<a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
@@ -317,13 +212,21 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
 	return giftDivs;
 }
 
+
+function getPersonsGift(playerToPresentMap, key) {
+	if(playerToPresentMap[key] == null) {
+		return "";
+	}
+	return playerToPresentMap[key].toString();
+}
+
 function sendPresentSelectionToServer() {
 	var currentPresent = getCurrentVisiblePresent();
 	var currentPresentLetter = numberToLetterMap[currentPresent];
 	$.get(base_url + "/person/" + playerName + "/" + currentPresentLetter, function(data, status){});
 }
 
-// function setTimerOfDice() {
-//     $("#diceButton").attr("disabled", true);
-//     setTimeout(function() { enableSubmit("#diceButton") }, (9 - playerToPresentMap.length) * 0);
-// }
+function setTimerOfDice() {
+    $("#diceButton").attr("disabled", true);
+    setTimeout(function() { enableSubmit("#diceButton") }, (10 - playerToPresentMap.length) * 2);
+}
