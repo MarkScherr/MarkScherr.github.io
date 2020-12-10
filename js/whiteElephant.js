@@ -220,9 +220,8 @@ function getPersonsGift(playerToPresentMap, key) {
 }
 
 function sendPresentSelectionToServer() {
-	var currentPresent = getCurrentVisiblePresent();
-	var currentPresentLetter = numberToLetterMap[currentPresent];
-	$.get(base_url + "/person/" + playerName + "/" + currentPresentLetter, function(data, status){});
+	var currentPresent = $('div.active').attr('id');
+	$.get(base_url + "/person/" + playerName + "/" + currentPresent, function(data, status){});
 }
 
 function setTimerOfDice() {
