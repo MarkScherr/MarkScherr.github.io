@@ -37,9 +37,9 @@ function newDice() {
 	$("#weDiv").append('<div id="diceDiv" class="col-md-12"></div>');
 	$("#diceDiv").append('<img src="img/d6/g1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
-	$("#weDiv").append('<div id="rollDiceButton" class="col-md-12"><button id="diceButton" class="btn btn-primary" type="submit">ROLL</button></div>');
+	$("#weDiv").append('<div id="rollContainer"><div id="rollDiceButton" class="col-md-12"><button id="diceButton" class="btn btn-primary" type="submit">ROLL</button></div></div>');
 	$("#weDiv").append('<div id="resultDiv"></div>');
-	setWeDivButtonPressing();
+	setRollButtonPressing();
 	setDiceRollButton();
 }
 
@@ -50,10 +50,11 @@ function refreshDice() {
 	$("#diceDiv").append('<img src="img/d6/r1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#rollDiceButton").show();
 }
-function setWeDivButtonPressing() {
-	$("#weDiv").on("click", function(){
+function setRollButtonPressing() {
+	$("#diceDiv").on("click", function(){
 		pressedRollButtonCount += 1;
-		if (pressedRollButtonCount > 3) {
+		console.log("pressedRollContainer " + pressedRollButtonCount);
+		if (pressedRollButtonCount > 2) {
 			alert("Settle down Chester Cheater, it ain't your turn yet!");
 		}
     });
