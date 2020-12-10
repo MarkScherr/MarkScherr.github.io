@@ -65,8 +65,8 @@ function rollDice() {
 	var redDie = getRandom(1,6);
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
+	setTimerOfDice();
 	if (greenDie === redDie) {
-		setTimerOfDice();
 		getGiftsFromServer(greenDie);
 	}
 	
@@ -128,7 +128,6 @@ function getGiftsFromServer(dice) {
 	$("#rollDiceButton").hide();
 	emptyDivs();
 	callServer(dice)
-	// when(playerToPresentMap = callServer()).done(return playerToPresentMap);
 }
 
 function callServer(dice) {
