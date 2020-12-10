@@ -34,8 +34,8 @@ function setNameEnterButton() {
 
 function newDice() {
 	$("#weDiv").append('<div id="diceDiv" class="col-md-12"></div>');
-	$("#diceDiv").append('<img src="img/d6/1.png" style="flex-grow:2;width: 50%;max-width:50%;">');
-	$("#diceDiv").append('<img src="img/d6/1.png" style="flex-grow:2;width: 50%;max-width:50%;">');
+	$("#diceDiv").append('<img src="img/d6/g1.png" style="flex-grow:2;width: 50%;max-width:50%;">');
+	$("#diceDiv").append('<img src="img/d6/r1.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	$("#weDiv").append('<div id="rollContainer"><div id="rollDiceButton" class="col-md-12"><button id="diceButton" class="btn btn-primary" type="submit">ROLL</button></div></div>');
 	$("#weDiv").append('<div id="resultDiv"></div>');
 	setDiceRollButton();
@@ -44,8 +44,8 @@ function newDice() {
 function refreshDice(diceToPlace) {
 	emptyDivs();
 	$("#resultDiv").empty();
-	$("#diceDiv").append('<img src="img/d6/' + diceToPlace + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
-	$("#diceDiv").append('<img src="img/d6/' + diceToPlace + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
+	$("#diceDiv").append('<img src="img/d6/g' + diceToPlace + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
+	$("#diceDiv").append('<img src="img/d6/r' + diceToPlace + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	setTimerOfDice();
 	$("#rollDiceButton").show();
 }
@@ -62,12 +62,12 @@ function emptyDivs() {
 }
 function rollDice() {
 	emptyDivs();	
-	var die1 = getRandom(1,6);
-	var die2 = getRandom(1,6);
-	$("#diceDiv").append('<img src="img/d6/' + die1 + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
-	$("#diceDiv").append('<img src="img/d6/' + die2 + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
-	if (die1 === die2) {
-		getGiftsFromServer(die1);
+	var greenDie = getRandom(1,6);
+	var redDie = getRandom(1,6);
+	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
+	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
+	if (greenDie === redDie) {
+		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
 	}
