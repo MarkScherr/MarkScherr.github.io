@@ -207,55 +207,55 @@ function setCarousel(playerToPresentMap) {
 	emptyDivs();
 	let giftDivs = getGiftDivs(playerToPresentMap, 10);
 	console.log(giftDivs);
-	var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
-	var aOwner = getPersonsGift(playerToPresentMap, "A");
-	var bOwner = getPersonsGift(playerToPresentMap, "B");
-	var cOwner = getPersonsGift(playerToPresentMap, "C");
-	var dOwner = getPersonsGift(playerToPresentMap, "D");
-	var eOwner = getPersonsGift(playerToPresentMap, "E");
-	var fOwner = getPersonsGift(playerToPresentMap, "F");
-	var gOwner = getPersonsGift(playerToPresentMap, "G");
-	var hOwner = getPersonsGift(playerToPresentMap, "H");
-	var iOwner = getPersonsGift(playerToPresentMap, "I");
-	var jOwner = getPersonsGift(playerToPresentMap, "J");
-	var kOwner = getPersonsGift(playerToPresentMap, "K");
-	var lOwner = getPersonsGift(playerToPresentMap, "L");
-	var mOwner = getPersonsGift(playerToPresentMap, "M");
-	var nOwner = getPersonsGift(playerToPresentMap, "N");
-	var oOwner = getPersonsGift(playerToPresentMap, "O");
-	var pOwner = getPersonsGift(playerToPresentMap, "P");
+	// var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
+	// var aOwner = getPersonsGift(playerToPresentMap, "A");
+	// var bOwner = getPersonsGift(playerToPresentMap, "B");
+	// var cOwner = getPersonsGift(playerToPresentMap, "C");
+	// var dOwner = getPersonsGift(playerToPresentMap, "D");
+	// var eOwner = getPersonsGift(playerToPresentMap, "E");
+	// var fOwner = getPersonsGift(playerToPresentMap, "F");
+	// var gOwner = getPersonsGift(playerToPresentMap, "G");
+	// var hOwner = getPersonsGift(playerToPresentMap, "H");
+	// var iOwner = getPersonsGift(playerToPresentMap, "I");
+	// var jOwner = getPersonsGift(playerToPresentMap, "J");
+	// var kOwner = getPersonsGift(playerToPresentMap, "K");
+	// var lOwner = getPersonsGift(playerToPresentMap, "L");
+	// var mOwner = getPersonsGift(playerToPresentMap, "M");
+	// var nOwner = getPersonsGift(playerToPresentMap, "N");
+	// var oOwner = getPersonsGift(playerToPresentMap, "O");
+	// var pOwner = getPersonsGift(playerToPresentMap, "P");
 
 	$("#presentDiv").append(`<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="item active" id="a">
-  		<div class="container">
-	      <img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + giftsTaken[0] + `%);filter:grayscale(` + giftsTaken[0] + `%);">
-	      <div class="centered">` + aOwner + `</div>
-	    </div>
-    </div>
+  <div class="carousel-inner">` + giftDivs +
+  //   <div class="item active" id="a">
+  // 		<div class="container">
+	 //      <img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + giftsTaken[0] + `%);filter:grayscale(` + giftsTaken[0] + `%);">
+	 //      <div class="centered">` + aOwner + `</div>
+	 //    </div>
+  //   </div>
 
-    <div class="item" id="b">
-  		<div class="container">
-	      <img src="img/presents/B.jpg" style="-webkit-filter:grayscale(` + giftsTaken[1] + `%);filter:grayscale(` + giftsTaken[1] + `%);">
-	      <div class="centered">` + bOwner + `</div>
-    	</div>
-    </div>
+  //   <div class="item" id="b">
+  // 		<div class="container">
+	 //      <img src="img/presents/B.jpg" style="-webkit-filter:grayscale(` + giftsTaken[1] + `%);filter:grayscale(` + giftsTaken[1] + `%);">
+	 //      <div class="centered">` + bOwner + `</div>
+  //   	</div>
+  //   </div>
 
-    <div class="item" id="c">
-  		<div class="container">
-	      <img src="img/presents/C.jpg" style="-webkit-filter: grayscale(` + giftsTaken[2] + `%);filter: grayscale(` + giftsTaken[2] + `%)";>
-	      <div class="centered">` + cOwner + `</div>
-	    </div>
-    </div>
+  //   <div class="item" id="c">
+  // 		<div class="container">
+	 //      <img src="img/presents/C.jpg" style="-webkit-filter: grayscale(` + giftsTaken[2] + `%);filter: grayscale(` + giftsTaken[2] + `%)";>
+	 //      <div class="centered">` + cOwner + `</div>
+	 //    </div>
+  //   </div>
 
-		<div class="item" id="d">
-  	<div class="container">
-	      <img src="img/presents/D.jpg" style="-webkit-filter: grayscale(` + giftsTaken[3] + `%);filter: grayscale(` + giftsTaken[3] + `%)";>
-	      <div class="centered">` + dOwner + `</div>
-	    </div>
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+		// <div class="item" id="d">
+  // 	<div class="container">
+	 //      <img src="img/presents/D.jpg" style="-webkit-filter: grayscale(` + giftsTaken[3] + `%);filter: grayscale(` + giftsTaken[3] + `%)";>
+	 //      <div class="centered">` + dOwner + `</div>
+	 //    </div>
+  //   </div>
+  // </div>
+  `<a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
   </a>
@@ -304,7 +304,8 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
 		giftDivs += `   
 		<div class="item` + activeDiv + `" id="` + giftLetter + `">
   			<div class="container">
-	    		<img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + grayScale + `%);filter:grayscale(` + grayScale + `%);">
+	    		<img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + grayScale + `%);filter:grayscale(` + grayScale + `%)
+	    		;max-width: 100%;max-height: 100%;">
 	      		<div class="centered">` + ownerOfGift + `</div>
 	    	</div>
     	</div>
@@ -312,7 +313,7 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
     	giftsInDiv += 1;
 
 	} while (giftsInDiv < 10);
-	
+
 	return giftDivs;
 }
 
