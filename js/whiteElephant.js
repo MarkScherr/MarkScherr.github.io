@@ -1,4 +1,4 @@
-
+var pressedRollButtonCount = 0;
 var playerName = '';
 var enableSubmit = function(ele) {
     $(ele).removeAttr("disabled");
@@ -39,6 +39,7 @@ function newDice() {
 	$("#diceDiv").append('<img src="img/d6/r1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#weDiv").append('<div id="rollDiceButton" class="col-md-12"><button id="diceButton" class="btn btn-primary" type="submit">ROLL</button></div>');
 	$("#weDiv").append('<div id="resultDiv"></div>');
+	setWeDivButtonPressing();
 	setDiceRollButton();
 }
 
@@ -49,9 +50,17 @@ function refreshDice() {
 	$("#diceDiv").append('<img src="img/d6/r1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#rollDiceButton").show();
 }
+function setDiceRollButton() {
+	$("#weDiv").on("click", function(){
+		pressedRollButtonCount += 1;
+		if (pressedRollButtonCount > 3) {
+			alert("Settle down Chester Cheater, it ain't your turn yet!");
+		}
+    });
 
 function setDiceRollButton() {
 	$("#rollDiceButton").on("click", function(){
+		pressedRollButtonCount = 0;
 		rollDice();	
     });
 }
