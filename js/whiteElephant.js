@@ -226,6 +226,6 @@ function sendPresentSelectionToServer() {
 }
 
 function setTimerOfDice() {
+    setTimeout(function() { $("#diceButton").attr("disabled", false)}, 5000);
     $("#diceButton").attr("disabled", true);
-    setTimeout(function() { enableSubmit("#diceButton") }, (10 - playerToPresentMap.length) * 2);
 }
