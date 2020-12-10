@@ -287,8 +287,10 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
 		do {
 			indexToUpdate = getRandom(1,10);
 		} while (alreadyInDivGifts.indexOf(indexToUpdate) > -1);
+		alreadyInDivGifts.push(indexToUpdate);
 
 		let giftLetter = numberToLetterMap[indexToUpdate];	
+		
 		let grayScale = 0
 		if (playerToPresentMap[giftLetter] != null) {
 			grayScale = 75;
@@ -307,6 +309,7 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
 	    	</div>
     	</div>
     	`	
+    	giftsInDiv += 1;
 
 	} while (giftsInDiv < 10);
 
