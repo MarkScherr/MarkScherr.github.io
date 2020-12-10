@@ -46,6 +46,7 @@ function refreshDice(diceToPlace) {
 	$("#resultDiv").empty();
 	$("#diceDiv").append('<img src="img/d6/g' + diceToPlace + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r' + diceToPlace + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
+	setTimerOfDice();
 	$("#rollDiceButton").show();
 }
 
@@ -111,12 +112,10 @@ function makeSwipable() {
 function setButtonActions(dice) {
 	$("#selectPresentButton").on("click", function(){
 		sendPresentSelectionToServer();
-		setTimerOfDice();
 		refreshDice(dice);
     });
 	$("#cancelPresentSelectionButton").on("click", function(){
 		if (confirm("Are you sure you don't want a gift?")) {
-			setTimerOfDice();
 			refreshDice(dice);
 		}
     });
