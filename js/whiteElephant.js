@@ -41,11 +41,11 @@ function newDice() {
 	setDiceRollButton();
 }
 
-function refreshDice() {
+function refreshDice(diceToPlace) {
 	emptyDivs();
 	$("#resultDiv").empty();
-	$("#diceDiv").append('<img src="img/d6/g1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
-	$("#diceDiv").append('<img src="img/d6/r1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
+	$("#diceDiv").append('<img src="img/d6/g' + diceToPlace + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
+	$("#diceDiv").append('<img src="img/d6/r' + diceToPlace + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#rollDiceButton").show();
 }
 
@@ -82,12 +82,12 @@ function unleashThePresents(playerToPresentMap, dice) {
 	} else {
 		$("#resultDiv").append('<h2>You rolled ' + dice + '\'s</h2>');		
 	}
-	addGiftCarousel(playerToPresentMap);
+	addGiftCarousel(playerToPresentMap, dice);
 }
 
-function addGiftCarousel(playerToPresentMap){
+function addGiftCarousel(playerToPresentMap, dice){
 	$("#weDiv").append('<div id="presentDiv"></div>');
-	setCarousel(playerToPresentMap);
+	setCarousel(playerToPresentMap, dice);
 }
 
 function makeSwipable() {
@@ -108,14 +108,14 @@ function makeSwipable() {
 	});
 }
 
-function setButtonActions() {
+function setButtonActions(dice) {
 	$("#selectPresentButton").on("click", function(){
 		sendPresentSelectionToServer();
-		refreshDice();
+		refreshDice(dice);
     });
 	$("#cancelPresentSelectionButton").on("click", function(){
 		if (confirm("Are you sure you don't want a gift?")) {
-			refreshDice();
+			refreshDice(dice);
 		}
     });
 }
@@ -143,7 +143,7 @@ function callServer(dice) {
 	 });
 }
 
-function setCarousel(playerToPresentMap) {
+function setCarousel(playerToPresentMap, dice) {
 	emptyDivs();
 	let giftDivs = getGiftDivs(playerToPresentMap, 10);
 	console.log(giftDivs);
@@ -170,7 +170,7 @@ function setCarousel(playerToPresentMap) {
 
 `);
 	makeSwipable();
-	setButtonActions();
+	setButtonActions(dice);
 }
 
 function getGiftDivs(playerToPresentMap, totalGifts) {
