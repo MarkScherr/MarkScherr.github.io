@@ -170,11 +170,43 @@ function getGiftIndexGrayScale(playerToPresentMap) {
 	} else {
 		giftsTaken.push(75);
 	}
+	if(playerToPresentMap["E"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(75);
+	}
+	if(playerToPresentMap["F"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(75);
+	}
+	if(playerToPresentMap["G"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(75);
+	}
+	if(playerToPresentMap["H"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(75);
+	}
+	if(playerToPresentMap["I"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(75);
+	}
+	if(playerToPresentMap["J"] == null) {
+		giftsTaken.push(0);
+	} else {
+		giftsTaken.push(75);
+	}
 	return giftsTaken;
 }
 
 function setCarousel(playerToPresentMap) {
 	emptyDivs();
+	let giftDivs = getGiftDivs(playerToPresentMap, 10);
+	console.log(giftDivs);
 	var giftsTaken = getGiftIndexGrayScale(playerToPresentMap);
 	var aOwner = getPersonsGift(playerToPresentMap, "A");
 	var bOwner = getPersonsGift(playerToPresentMap, "B");
@@ -195,22 +227,22 @@ function setCarousel(playerToPresentMap) {
 
 	$("#presentDiv").append(`<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-	    <div class="item active" id="a">
-  	<div class="container">
+    <div class="item active" id="a">
+  		<div class="container">
 	      <img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + giftsTaken[0] + `%);filter:grayscale(` + giftsTaken[0] + `%);">
 	      <div class="centered">` + aOwner + `</div>
 	    </div>
     </div>
 
-	    <div class="item" id="b">
-  	<div class="container">
+    <div class="item" id="b">
+  		<div class="container">
 	      <img src="img/presents/B.jpg" style="-webkit-filter:grayscale(` + giftsTaken[1] + `%);filter:grayscale(` + giftsTaken[1] + `%);">
 	      <div class="centered">` + bOwner + `</div>
     	</div>
     </div>
 
-	    <div class="item" id="c">
-  	<div class="container">
+    <div class="item" id="c">
+  		<div class="container">
 	      <img src="img/presents/C.jpg" style="-webkit-filter: grayscale(` + giftsTaken[2] + `%);filter: grayscale(` + giftsTaken[2] + `%)";>
 	      <div class="centered">` + cOwner + `</div>
 	    </div>
@@ -244,6 +276,40 @@ function setCarousel(playerToPresentMap) {
 `);
 	makeSwipable();
 	setButtonActions();
+}
+
+function getGiftDivs(playerToPresentMap, totalGifts) {
+	let giftsInDiv = 0;
+	let alreadyInDivGifts = [];
+	let giftDivs = "";
+	let indexToUpdate = 0;
+	do {
+		do {
+			indexToUpdate = getRandom(1,10);
+		} while (alreadyInDivGifts.indexOf(indexToUpdate) > -1);
+
+		let giftLetter = numberToLetterMap[indexToUpdate];	
+		let grayScale = 0
+		if (playerToPresentMap[giftLetter] != null) {
+			grayScale = 75;
+		} 
+		let ownerOfGift = getPersonsGift(playerToPresentMap, giftLetter);
+		let activeDiv = ""
+
+		if (giftsInDiv === 0) {
+			activeDiv = " active";
+		}
+		giftDivs += `   
+		<div class="item` + activeDiv + `" id="` + giftLetter + `">
+  			<div class="container">
+	    		<img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + grayscale + `%);filter:grayscale(` + grayscale + `%);">
+	      		<div class="centered">` + ownerOfGift + `</div>
+	    	</div>
+    	</div>
+    	`	
+
+	} while (giftsInDiv < 10);
+
 }
 
 function sendPresentSelectionToServer() {
