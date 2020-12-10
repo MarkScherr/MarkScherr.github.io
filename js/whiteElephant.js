@@ -290,7 +290,7 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
 		alreadyInDivGifts.push(indexToUpdate);
 
 		let giftLetter = numberToLetterMap[indexToUpdate];	
-		
+
 		let grayScale = 0
 		if (playerToPresentMap[giftLetter] != null) {
 			grayScale = 75;
@@ -312,7 +312,8 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
     	giftsInDiv += 1;
 
 	} while (giftsInDiv < 10);
-
+	
+	return giftDivs;
 }
 
 function sendPresentSelectionToServer() {
