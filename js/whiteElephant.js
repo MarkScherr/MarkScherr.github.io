@@ -52,6 +52,7 @@ function refreshDice(diceToPlace) {
 
 function setDiceRollButton() {
 	$("#rollDiceButton").on("click", function(){
+    $('#weDiv').append('<audio autoplay><source src="sound/we/diceRoll.mp3" type="audio/mpeg"></audio>');
 		rollDice();	
     });
 }
