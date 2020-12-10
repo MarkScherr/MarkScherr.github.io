@@ -65,9 +65,10 @@ function rollDice() {
 	var redDie = getRandom(1,6);
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
-	setTimerOfDice();
 	if (greenDie === redDie) {
 		getGiftsFromServer(greenDie);
+	} else {
+		setTimerOfDice();
 	}
 	
 
