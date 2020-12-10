@@ -50,13 +50,14 @@ function refreshDice() {
 	$("#diceDiv").append('<img src="img/d6/r1.jpg" style="flex-grow:2;width: 50%;max-width:50%;height:150px;">');
 	$("#rollDiceButton").show();
 }
-function setDiceRollButton() {
+function setWeDivButtonPressing() {
 	$("#weDiv").on("click", function(){
 		pressedRollButtonCount += 1;
 		if (pressedRollButtonCount > 3) {
 			alert("Settle down Chester Cheater, it ain't your turn yet!");
 		}
     });
+}
 
 function setDiceRollButton() {
 	$("#rollDiceButton").on("click", function(){
@@ -64,6 +65,7 @@ function setDiceRollButton() {
 		rollDice();	
     });
 }
+
 function emptyDivs() {
 	$("#diceDiv").empty();
 	$("#presentDiv").empty();
