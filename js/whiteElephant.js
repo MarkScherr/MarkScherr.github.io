@@ -304,7 +304,7 @@ function getGiftDivs(playerToPresentMap, totalGifts) {
 		giftDivs += `   
 		<div class="item` + activeDiv + `" id="` + giftLetter + `">
   			<div class="container">
-	    		<img src="img/presents/A.jpg" style="-webkit-filter:grayscale(` + grayScale + `%);filter:grayscale(` + grayScale + `%)
+	    		<img src="img/presents/` + giftLetter + `.jpg" style="-webkit-filter:grayscale(` + grayScale + `%);filter:grayscale(` + grayScale + `%)
 	    		;max-width: 100%;max-height: 100%;">
 	      		<div class="centered">` + ownerOfGift + `</div>
 	    	</div>
