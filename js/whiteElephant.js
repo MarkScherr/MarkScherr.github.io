@@ -118,6 +118,7 @@ function makeSwipable() {
 
 function setButtonActions(dice) {
 	$("#selectPresentButton").on("click", function(){
+		$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>');
 		sendPresentSelectionToServer();
 		refreshDice(dice);
     });
