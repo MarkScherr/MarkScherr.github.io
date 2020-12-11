@@ -83,7 +83,7 @@ function rollDice() {
 }
 
 function unleashThePresents(playerToPresentMap, dice) {
-	setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>')}, 2500);
+	setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>')}, 2000);
 	emptyDivs();
 	$("#resultDiv").empty();
 	if (dice === 1) {
