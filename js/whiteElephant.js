@@ -236,6 +236,6 @@ function sendPresentSelectionToServer() {
 }
 
 function setTimerOfDice() {
-    setTimeout(function() { $("#diceButton").attr("disabled", false)}, 000);
+    setTimeout(function() { $("#diceButton").attr("disabled", false)}, 5000);
     $("#diceButton").attr("disabled", true);
 }
