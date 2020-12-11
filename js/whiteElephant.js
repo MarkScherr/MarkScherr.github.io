@@ -71,6 +71,7 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	if (greenDie === redDie) {
+		$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>');
 		haveRolledDoubles = true;
 		getGiftsFromServer(greenDie);
 	} else {
@@ -118,7 +119,6 @@ function makeSwipable() {
 
 function setButtonActions(dice) {
 	$("#selectPresentButton").on("click", function(){
-		$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>');
 		sendPresentSelectionToServer();
 		refreshDice(dice);
     });
