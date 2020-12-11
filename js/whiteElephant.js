@@ -71,7 +71,7 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	if (greenDie === redDie) {
-		totalDoubles = 1;
+		haveRolledDoubles = true;
 		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
