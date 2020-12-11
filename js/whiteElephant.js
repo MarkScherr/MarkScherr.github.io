@@ -123,6 +123,7 @@ function setButtonActions(dice) {
     });
 	$("#cancelPresentSelectionButton").on("click", function(){
 		if (confirm("Are you sure you don't want a gift?")) {
+			$('#weDiv').append('<audio autoplay><source src="sound/we/nothing.mp3" type="audio/mpeg"></audio>');
 			refreshDice(dice);
 		}
     });
