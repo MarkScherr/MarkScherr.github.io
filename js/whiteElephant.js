@@ -105,10 +105,8 @@ function unleashThePresents(playerToPresentMap, dice) {
 	emptyDivs();
 	$("#resultDiv").empty();
 	if (dice === 1) {
-		$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>');
 		$("#resultDiv").append('<h2>You rolled SNAKE EYES!</h2>');
 	} else {
-		$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>');
 		$("#resultDiv").append('<h2>You rolled ' + dice + '\'s</h2>');		
 	}
 	addGiftCarousel(playerToPresentMap, dice);
