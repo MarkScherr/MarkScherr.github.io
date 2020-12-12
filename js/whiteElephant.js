@@ -83,7 +83,11 @@ function rollDice() {
 }
 
 function unleashThePresents(playerToPresentMap, dice) {
-	setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>')}, 2000);
+	if (dice == 1) {
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>')}, 2000);
+	} else {
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>')}, 2000);
+	}
 	emptyDivs();
 	$("#resultDiv").empty();
 	if (dice === 1) {
