@@ -12,9 +12,21 @@ const numberToLetterMap = {
 function whiteElephant() {
 	$("body").empty();
 	$("body").append('<div id="weDiv" class="col-md-12"></div>');
+	readyMusic();
 	createLogin();
 	newDice();
 
+}
+
+function readyMusic() {
+	$("#weDiv").append(`
+		<audio muted>
+  			<source src="sound/we/diceRoll.mp3" type="audio/mpeg">
+  			<source src="sound/we/bingo.mp3" type="audio/mpeg">
+  			<source src="sound/we/noDoubles.mp3" type="audio/mpeg">
+  			<source src="sound/we/nothing.mp3" type="audio/mpeg">
+  			<source src="sound/we/snakes.mp3" type="audio/mpeg">
+		</audio>`);
 }
 
 function createLogin() {
