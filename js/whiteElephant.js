@@ -100,10 +100,10 @@ function unleashThePresents(playerToPresentMap, dice) {
 	emptyDivs();
 	$("#resultDiv").empty();
 	if (dice === 1) {
-		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>')}, 2000);
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>')}, 1000);
 		$("#resultDiv").append('<h2>You rolled SNAKE EYES!</h2>');
 	} else {
-		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>')}, 2000);
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>')}, 1000);
 		$("#resultDiv").append('<h2>You rolled ' + dice + '\'s</h2>');		
 	}
 	addGiftCarousel(playerToPresentMap, dice);
@@ -252,6 +252,6 @@ function sendPresentSelectionToServer() {
 }
 
 function setTimerOfDice() {
-    setTimeout(function() { $("#diceButton").attr("disabled", false)}, 0000);
+    setTimeout(function() { $("#diceButton").attr("disabled", false)}, 5000);
     $("#diceButton").attr("disabled", true);
 }
