@@ -84,7 +84,7 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	if (greenDie === redDie) {
 		haveRolledDoubles = true;
-		if (dice === 1) {
+		if (greenDie === 1) {
 			$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>');
 		} else {
 			$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>');
