@@ -92,6 +92,9 @@ function rollDice() {
 		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
+		if (!haveRolledDoubles && totalRolls == 7) {
+			alert("I promise you I just used random numbers while coding this, sorry");
+		}
 		if (!haveRolledDoubles && totalRolls % 6 == 0) {
     		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/perpetualHope.mp3" type="audio/mpeg"></audio>')}, 2500);
 		} else if (!haveRolledDoubles && totalRolls % 3 == 0) {
