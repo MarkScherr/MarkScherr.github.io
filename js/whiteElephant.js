@@ -87,7 +87,9 @@ function rollDice() {
 		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
-		if (!haveRolledDoubles && totalRolls % 3 == 0) {
+		if (!haveRolledDoubles && totalRolls % 6 == 0) {
+    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/perpetualHope.mp3" type="audio/mpeg"></audio>')}, 2500);
+		} else if (!haveRolledDoubles && totalRolls % 3 == 0) {
     		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/noDoublesYet.mp3" type="audio/mpeg"></audio>')}, 2500);
 		}
 	}
@@ -174,27 +176,28 @@ function setCarousel(playerToPresentMap, dice) {
 	let giftDivs = getGiftDivs(playerToPresentMap, 10);
 	console.log(giftDivs);
 
-	$("#presentDiv").append(`<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">` + giftDivs +
-  `<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<br>
-<div class="col-md-12">
-	<button id="selectPresentButton" class="btn btn-primary" type="submit">SELECT CURRENT GIFT</button>
-</div>
-<br>
-<div class="col-md-12">
-	<button id="cancelPresentSelectionButton" class="btn btn-primary" type="submit">CANCEL SELECTION</button>
-</div>
+	$("#presentDiv").append(`
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  			<div class="carousel-inner">` + giftDivs +
+				`<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    				<span class="glyphicon glyphicon-chevron-left"></span>
+    				<span class="sr-only">Previous</span>
+ 				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right"></span>
+				    <span class="sr-only">Next</span>
+				</a>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<button id="selectPresentButton" class="btn btn-primary" type="submit">SELECT CURRENT GIFT</button>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<button id="cancelPresentSelectionButton" class="btn btn-primary" type="submit">CANCEL SELECTION</button>
+			</div>
 
-`);
+	`);
 	makeSwipable();
 	setButtonActions(dice);
 }
@@ -252,6 +255,6 @@ function sendPresentSelectionToServer() {
 }
 
 function setTimerOfDice() {
-    setTimeout(function() { $("#diceButton").attr("disabled", false)}, 5000);
+    setTimeout(function() { $("#diceButton").attr("disabled", false)}, 0000);
     $("#diceButton").attr("disabled", true);
 }
