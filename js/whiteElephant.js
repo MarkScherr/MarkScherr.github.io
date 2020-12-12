@@ -84,6 +84,11 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	if (greenDie === redDie) {
 		haveRolledDoubles = true;
+		if (dice === 1) {
+			$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>');
+		} else {
+			$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>');
+		}
 		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
@@ -100,10 +105,10 @@ function unleashThePresents(playerToPresentMap, dice) {
 	emptyDivs();
 	$("#resultDiv").empty();
 	if (dice === 1) {
-		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>')}, 1000);
+		$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>');
 		$("#resultDiv").append('<h2>You rolled SNAKE EYES!</h2>');
 	} else {
-		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>')}, 1000);
+		$('#weDiv').append('<audio autoplay><source src="sound/we/bingo.mp3" type="audio/mpeg"></audio>');
 		$("#resultDiv").append('<h2>You rolled ' + dice + '\'s</h2>');		
 	}
 	addGiftCarousel(playerToPresentMap, dice);
