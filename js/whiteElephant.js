@@ -280,7 +280,7 @@ function setFinishedButton() {
 			if (confirm("Are you sure sure sure you want to end the game?")) {
 				if (confirm("Are you Scherr sure you want to end the game?")) {
 					if (confirm("Okay, this is your last chance to back out")) {
-						alert("quitting game!");
+						finishGame();
 					}
 				}
 			}
