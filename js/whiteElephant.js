@@ -58,7 +58,7 @@ function newDice() {
 	$("#weDiv").append('<div id="diceDiv" class="col-md-12"></div>');
 	$("#diceDiv").append('<img src="img/d6/g1.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	$("#diceDiv").append('<img src="img/d6/r1.png" style="flex-grow:2;width: 50%;max-width:50%;">');
-	$("#weDiv").append('<div id="rollContainer"><div id="rollDiceButton" class="col-md-12"><button id="diceButton" class="btn btn-primary" type="submit">ROLL</button></div></div>');
+	$("#weDiv").append('<br><div id="rollContainer"><div id="rollDiceButton" class="col-md-12"><button id="diceButton" class="btn btn-primary" type="submit">ROLL</button></div></div>');
 	$("#weDiv").append('<div id="resultDiv"></div>');
 	setDiceRollButton();
 }
@@ -102,18 +102,7 @@ function rollDice() {
 		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
-		if (!haveRolledDoubles && totalRollsWithoutDoubles % 6 == 0) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/perpetualHope.mp3" type="audio/mpeg"></audio>')}, 2500);
-		} else if (!haveRolledDoubles && totalRollsWithoutDoubles % 3 == 0) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/noDoublesYet.mp3" type="audio/mpeg"></audio>')}, 2500);
-		} else if (!haveRolledDoubles && totalRollsWithoutDoubles == 7) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/lies.mp3" type="audio/mpeg"></audio>')}, 2500);
-			alert("I swear the game isn't cheating, you just have bad luck");
-		} else if (haveRolledDoubles && totalRollsWithoutDoubles % 4 ==0) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/armsDown.mp3" type="audio/mpeg"></audio>')}, 2500);
-		} else if (getRandom(1,6) == 1 && totalRolls > 4) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/thirsty.mp3" type="audio/mpeg"></audio>')}, 2500);
-		}
+		addSoundsToLosingDice();
 	}
 
 }
@@ -274,6 +263,21 @@ function sendPresentSelectionToServer() {
 function setTimerOfDice() {
     setTimeout(function() { $("#diceButton").attr("disabled", false)}, 5000);
     $("#diceButton").attr("disabled", true);
+}
+
+function addSoundsToLosingDice() {
+	if (!haveRolledDoubles && totalRollsWithoutDoubles % 6 == 0) {
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/perpetualHope.mp3" type="audio/mpeg"></audio>')}, 2500);
+	} else if (!haveRolledDoubles && totalRollsWithoutDoubles % 3 == 0) {
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/noDoublesYet.mp3" type="audio/mpeg"></audio>')}, 2500);
+	} else if (!haveRolledDoubles && totalRollsWithoutDoubles == 7) {
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/lies.mp3" type="audio/mpeg"></audio>')}, 2500);
+		alert("I swear the game isn't cheating, you just have bad luck");
+	} else if (haveRolledDoubles && totalRollsWithoutDoubles % 4 ==0) {
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/armsDown.mp3" type="audio/mpeg"></audio>')}, 2500);
+	} else if (getRandom(1,6) == 1 && totalRolls > 4) {
+		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/thirsty.mp3" type="audio/mpeg"></audio>')}, 2500);
+	}
 }
 
 function setFinishedButton() {
