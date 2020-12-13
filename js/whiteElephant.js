@@ -111,7 +111,7 @@ function rollDice() {
 			alert("I swear the game isn't cheating, you just have bad luck");
 		} else if (haveRolledDoubles && totalRollsWithoutDoubles % 4 ==0) {
     		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/armsDown.mp3" type="audio/mpeg"></audio>')}, 2500);
-		} else if (getRandom(1,15) == 1 && totalRolls > 4) {
+		} else if (getRandom(1,6) == 1 && totalRolls > 4) {
     		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/thirsty.mp3" type="audio/mpeg"></audio>')}, 2500);
 		}
 	}
