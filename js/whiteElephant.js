@@ -321,15 +321,6 @@ function setEndGameCarousel(playerToPresentMap) {
 				    <span class="sr-only">Next</span>
 				</a>
 			</div>
-			<br>
-			<div class="col-md-12">
-				<button id="selectPresentButton" class="btn btn-primary" type="submit">SELECT CURRENT GIFT</button>
-			</div>
-			<br>
-			<div class="col-md-12">
-				<button id="cancelPresentSelectionButton" class="btn btn-primary" type="submit">CANCEL SELECTION</button>
-			</div>
-
 	`);
 
 	makeSwipable();
