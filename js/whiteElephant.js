@@ -338,8 +338,8 @@ function addWinnerOfExtraGiftToPresentMap(playerToPresentMap) {
 	var letterList = ['A','B','C','D','E','F','G','H','I','J'];
 	var presentsTaken = [];
 	for (const [key, value] of Object.entries(playerToPresentMap)) {
-		presentsTaken.push(value);
-		let index = letterList.indexOf(value);
+		presentsTaken.push(key);
+		let index = letterList.indexOf(key);
 		if (index > -1) {
 			letterList.splice(index, 1);
 		}
@@ -347,11 +347,7 @@ function addWinnerOfExtraGiftToPresentMap(playerToPresentMap) {
 	var extraPresent = letterList.pop();
 	var winningNumber = getRandom(1,9);
 	var winningPresentLetter = presentsTaken[winningNumber];
-
-	for (const [key, value] of Object.entries(playerToPresentMap)) {
-		if (value == extraPresent) {
-			playerToPresentMap[key + "2nd"] = extraPresent;
-		}
-	}
+	
+	playerToPresentMap[extraPresent] = playerToPresentMap[winningPresentLetter];
 	return playerToPresentMap;
 }
