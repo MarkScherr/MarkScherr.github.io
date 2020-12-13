@@ -12,7 +12,9 @@ const numberToLetterMap = {
 function whiteElephant() {
 	$("body").empty();
 	$("body").append('<div id="weDiv" class="col-md-12"></div>');
+	$("body").append('<br><br><br><br><br><br><br><br><div id="finishedDiv" class="col-md-12"></div>');
 	readyMusic();
+	createFinishedButton();
 	createLogin();
 	newDice();
 
@@ -36,6 +38,11 @@ function createLogin() {
 	setNameEnterButton();
 }
 
+function createFinishedButton() {
+	$("#finishedDiv").append('<div class="col-md-3"></div><div id="finishedButton" class="col-md-3"><button class="btn btn-danger"' +
+		' type="submit">end game</button></div><div class="col-md-3"></div><br>');
+	setFinishedButton();
+}
 function setNameEnterButton() {
 	$("#enterName").on("click", function(){
 		playerName = $("#usr").val();
@@ -265,4 +272,84 @@ function sendPresentSelectionToServer() {
 function setTimerOfDice() {
     setTimeout(function() { $("#diceButton").attr("disabled", false)}, 5000);
     $("#diceButton").attr("disabled", true);
+}
+
+function setFinishedButton() {
+	$("#finishedButton").on("click", function(){
+		if (confirm("Are you sure you want to end the game?")) {
+			if (confirm("Are you sure sure sure you want to end the game?")) {
+				if (confirm("Are you Scherr sure you want to end the game?")) {
+					if (confirm("Okay, this is your last chance to back out")) {
+						alert("quitting game!");
+					}
+				}
+			}
+		}
+    });
+}
+
+function finishGame() {
+	emptyDivs();
+	let playerToPresentMap = {};	
+    $(function () {	
+	 	$.get(base_url + "/person/all", function(data, status){
+			for(var i = 0 ; i < data.length ; i++) {
+				playerToPresentMap[data[i].giftName] = data[i].name;
+			}
+			setEndGameCarousel(playerToPresentMap);
+		});
+ 	});
+}
+
+function setEndGameCarousel(playerToPresentMap) {
+	emptyDivs();
+	let winnerMap = {};
+	let giftDivs = getGiftDivs(playerToPresentMap, 10);
+	playerToPresentMap, winnerMap = addWinnerOfExtraGiftToPresentMap(playerToPresentMap);
+
+	$("#presentDiv").append(`
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  			<div class="carousel-inner">` + giftDivs +
+				`<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    				<span class="glyphicon glyphicon-chevron-left"></span>
+    				<span class="sr-only">Previous</span>
+ 				</a>
+				<a class="right carousel-control" href="#myCarousel" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right"></span>
+				    <span class="sr-only">Next</span>
+				</a>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<button id="selectPresentButton" class="btn btn-primary" type="submit">SELECT CURRENT GIFT</button>
+			</div>
+			<br>
+			<div class="col-md-12">
+				<button id="cancelPresentSelectionButton" class="btn btn-primary" type="submit">CANCEL SELECTION</button>
+			</div>
+
+	`);
+	makeSwipable();
+}
+
+function addWinnerOfExtraGiftToPresentMap(playerToPresentMap) {
+	var letterList = ['A','B','C','D','E','F','G','H','I','J'];
+	var presentsTaken = [];
+	for (const [key, value] of Object.entries(playerToPresentMap)) {
+		presentsTaken.push(value);
+		let index = letterList.indexOf(value);
+		if (index > -1) {
+			letterList.splice(index, 1);
+		}
+	}
+	var extraPresent = letterList.pop();
+	var winningNumber = getRandom(1,9);
+	var winningPresentLetter = presentsTaken[winningNumber];
+
+	for (const [key, value] of Object.entries(playerToPresentMap)) {
+		if (value == extraPresent) {
+			playerToPresentMap[key + "2nd"] = extraPresent;
+		}
+	}
+	return playerToPresentMap;
 }
