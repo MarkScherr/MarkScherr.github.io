@@ -304,7 +304,7 @@ function finishGame() {
 
 function setEndGameCarousel(playerToPresentMap) {
 	emptyDivs();
-	let winnerMap = [];
+	let winnerList = [];
 	playerToPresentMap, winnerList = addWinnerOfExtraGiftToPresentMap(playerToPresentMap);
 	let giftDivs = getGiftDivs(playerToPresentMap, 10);
 	$("#weDiv").append('<div id="presentDiv"></div>');
