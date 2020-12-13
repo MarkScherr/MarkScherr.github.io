@@ -280,6 +280,8 @@ function setFinishedButton() {
 			if (confirm("Are you sure sure sure you want to end the game?")) {
 				if (confirm("Are you Scherr sure you want to end the game?")) {
 					if (confirm("Okay, this is your last chance to back out")) {
+						emptyDivs();
+						$("#rollDiceButton").empty();
 						finishGame();
 					}
 				}
@@ -289,10 +291,10 @@ function setFinishedButton() {
 }
 
 function finishGame() {
-	emptyDivs();
 	let playerToPresentMap = {};	
     $(function () {	
 	 	$.get(base_url + "/person/all", function(data, status){
+	 		alert("calledServer");
 			for(var i = 0 ; i < data.length ; i++) {
 				playerToPresentMap[data[i].giftName] = data[i].name;
 			}
