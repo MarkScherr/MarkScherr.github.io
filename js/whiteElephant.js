@@ -92,7 +92,7 @@ function rollDice() {
 		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
-		if (haveRolledDoubles %% totalRolls % 3) {
+		if (haveRolledDoubles %% totalRolls % 3 ==0) {
     		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/armsDown.mp3" type="audio/mpeg"></audio>')}, 2500);
 		}
 		if (!haveRolledDoubles && totalRolls == 7) {
