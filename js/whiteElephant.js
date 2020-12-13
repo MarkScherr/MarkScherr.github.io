@@ -306,8 +306,8 @@ function finishGame() {
 function setEndGameCarousel(playerToPresentMap) {
 	emptyDivs();
 	let winnerMap = {};
+	playerToPresentMap = addWinnerOfExtraGiftToPresentMap(playerToPresentMap);
 	let giftDivs = getGiftDivs(playerToPresentMap, 10);
-	playerToPresentMap, winnerMap = addWinnerOfExtraGiftToPresentMap(playerToPresentMap);
 	$("#weDiv").append('<div id="presentDiv"></div>');
 	$("#presentDiv").append(`
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -347,7 +347,7 @@ function addWinnerOfExtraGiftToPresentMap(playerToPresentMap) {
 	var extraPresent = letterList.pop();
 	var winningNumber = getRandom(1,9);
 	var winningPresentLetter = presentsTaken[winningNumber];
-	
+
 	playerToPresentMap[extraPresent] = playerToPresentMap[winningPresentLetter];
 	return playerToPresentMap;
 }
