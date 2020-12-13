@@ -4,6 +4,7 @@ var enableSubmit = function(ele) {
 }
 var haveRolledDoubles = false;
 var totalRolls = 0;
+var totalRollsWithoutDoubles = 0;
 const base_url = 'https://white-elephant20.herokuapp.com';
 const numberToLetterMap = {
 	"1":"A","2":"B","3":"C","4":"D","5":"E","6":"F","7":"G","8":"H","9":"I","10":"J","11":"K","12":"L","13":"M","14":"N","15":"O","16":"P",
@@ -83,6 +84,7 @@ function emptyDivs() {
 	$("#presentDiv").empty();
 }
 function rollDice() {
+	totalRollsWithoutDoubles += 1;
 	totalRolls += 1;
 	emptyDivs();	
 	var greenDie = getRandom(1,6);
@@ -90,7 +92,7 @@ function rollDice() {
 	$("#diceDiv").append('<img src="img/d6/g' + greenDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	$("#diceDiv").append('<img src="img/d6/r' + redDie + '.png" style="flex-grow:2;width: 50%;max-width:50%;">');
 	if (greenDie === redDie) {
-		totalRolls = 0;
+		totalRollsWithoutDoubles = 0;
 		haveRolledDoubles = true;
 		if (greenDie === 1) {
 			$('#weDiv').append('<audio autoplay><source src="sound/we/snakes.mp3" type="audio/mpeg"></audio>');
@@ -100,17 +102,17 @@ function rollDice() {
 		getGiftsFromServer(greenDie);
 	} else {
 		setTimerOfDice();
-		if (haveRolledDoubles && totalRolls % 3 ==0) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/armsDown.mp3" type="audio/mpeg"></audio>')}, 2500);
-		}
-		if (!haveRolledDoubles && totalRolls == 7) {
+		if (!haveRolledDoubles && totalRollsWithoutDoubles % 6 == 0) {
+    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/perpetualHope.mp3" type="audio/mpeg"></audio>')}, 2500);
+		} else if (!haveRolledDoubles && totalRollsWithoutDoubles % 3 == 0) {
+    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/noDoublesYet.mp3" type="audio/mpeg"></audio>')}, 2500);
+		} else if (!haveRolledDoubles && totalRollsWithoutDoubles == 7) {
     		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/lies.mp3" type="audio/mpeg"></audio>')}, 2500);
 			alert("I swear the game isn't cheating, you just have bad luck");
-		}
-		if (!haveRolledDoubles && totalRolls % 6 == 0) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/perpetualHope.mp3" type="audio/mpeg"></audio>')}, 2500);
-		} else if (!haveRolledDoubles && totalRolls % 3 == 0) {
-    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/noDoublesYet.mp3" type="audio/mpeg"></audio>')}, 2500);
+		} else if (haveRolledDoubles && totalRollsWithoutDoubles % 3 ==0) {
+    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/armsDown.mp3" type="audio/mpeg"></audio>')}, 2500);
+		} else if (getRandom(1,15) == 1 && totalRolls > 4) {
+    		setTimeout(function() {$('#weDiv').append('<audio autoplay><source src="sound/we/armsDown.mp3" type="audio/mpeg"></audio>')}, 2500);
 		}
 	}
 
