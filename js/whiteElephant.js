@@ -294,7 +294,6 @@ function finishGame() {
 	let playerToPresentMap = {};	
     $(function () {	
 	 	$.get(base_url + "/person/all", function(data, status){
-	 		alert("calledServer");
 			for(var i = 0 ; i < data.length ; i++) {
 				playerToPresentMap[data[i].giftName] = data[i].name;
 			}
