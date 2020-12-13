@@ -343,5 +343,5 @@ function addWinnerOfExtraGiftToPresentMap(playerToPresentMap) {
 	winnerList.push(extraPresent);
 	winnerList.push(playerToPresentMap[winningPresentLetter]);
 	playerToPresentMap[extraPresent] = playerToPresentMap[winningPresentLetter];
-	return playerToPresentMap;
+	return playerToPresentMap, winnerList;
 }
