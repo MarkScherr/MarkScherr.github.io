@@ -41,7 +41,7 @@ function bardTimeQuestion() {
 		'<iframe width="560" height="315" src="https://www.youtube.com/embed/66IM7Pb6JYc" title="YouTube video player" ' +
 		'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; ' +
 		'web-share" allowfullscreen></iframe>',
-		'<iframe width="560" height="315" src="https://www.youtube.com/embed/mdo647DU8EE" title="YouTube video player" ' +
+		'<iframe width="560" height="315" src="https://www.youtube.com/embed/mdo647DU8EE?t=44" title="YouTube video player" ' +
 		'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; ' +
 		'web-share" allowfullscreen></iframe>'
 	];
