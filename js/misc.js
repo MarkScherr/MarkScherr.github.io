@@ -29,7 +29,7 @@ function bardTimeQuestion() {
 	input.empty();
 	var songList = [
 		"FIREBALL",
-		"LIGHTNING BLAST"
+		"LIGHTNING BOLT"
 	];
 	var youTubeEmbedList = [
 		'<div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/mdo647DU8EE?start=44" ' +
