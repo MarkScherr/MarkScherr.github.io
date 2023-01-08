@@ -24,34 +24,29 @@ function setClickFunction(soundId) {
 		});
 }
 
-
-function bardTimeLinkClick() {
-    $('#sound').append('<audio autoplay><source src="sound/smb/smb3_enter_level.wav" type="audio/wav"></audio>');
-    bardTimeQuestion();
-} 
-
 function bardTimeQuestion() {
 	var input = $('#inputDiv');
 	input.empty();
 	var songList = [
-		"LIGHTNING BLAST", 
-		"FIREBALL"
+		"FIREBALL",
+		"LIGHTNING BLAST"
 	];
-	var youTubeEmbedList = [	
-		'<div class="iframe-container"><<iframe width="560" height="315" src="https://www.youtube.com/embed/66IM7Pb6JYc?start=68" ' +
+	var youTubeEmbedList = [
+		'<div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/mdo647DU8EE?start=44" ' +
 		'title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; ' +
 		'gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>',
-		'<div class="iframe-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/mdo647DU8EE?start=44" ' +
+		'<div class="iframe-container"><<iframe width="560" height="315" src="https://www.youtube.com/embed/66IM7Pb6JYc?start=68" ' +
 		'title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; ' +
 		'gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>'
 	];
 	var parodyList = [
-		'(1:09 start) The Electricity of my lightning now you will feel my blast',
-		'(0:44 start) I came in like a FIREBALL only just to destroy you all'
+		'I came in like a FIREBALL<br><br>only just to destroy you all',
+		'The Electricity of my lightning<br><br>now you will feel my blast'
 	];
 	for (var i = 0 ; i < songList.length ; i++ ) {
-		input.append('<br><h1 id="songList' + i + '">' + songList[i] + '</h1>');
-		setClickFunctionForSpells('songList' + i, songList[i], youTubeEmbedList[i], parodyList[i]);
+		var songListId = 'songList' + i;
+		input.append('<br><h1 id="' + songListId + '">' + songList[i] + '</h1>');
+		setClickFunctionForSpells(songListId, songList[i], youTubeEmbedList[i], parodyList[i]);
 
 	}
 }
@@ -63,7 +58,7 @@ function setClickFunctionForSpells(songListId, songName, embeddedHtmlForYouTube,
 			input.append('<h1>' + songName + '</h1><br>');
 			input.append(embeddedHtmlForYouTube + '<br>');
 			input.append('<br><h2>' + newParodyLyrics + '</h2><br>');
-    		input.append('<div class="inline-div"><div id="returnButton" class="inline-div"><img src="img/marioSelect.png" style="height:85px; margin-bottom:-5px;"></div></div>');
+    		input.append('<div class="inline-div"><div id="returnButton" class="inline-div"><img src="img/marioReturn\.png" style="height:85px; margin-bottom:-5px;"></div></div>');
  			setReturnButtonClickEventForSpells()
 		});
 }
