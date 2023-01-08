@@ -34,11 +34,11 @@ function bardTimeQuestion() {
 	var input = $('#inputDiv');
 	input.empty();
 	var songList = [
-		"INTRODUCTION", 
+		"LIGHTNING BLAST", 
 		"FIREBALL"
 	];
 	var youTubeEmbedList = [	
-		'<iframe width="560" height="315" src="https://www.youtube.com/embed/66IM7Pb6JYc" title="YouTube video player" ' +
+		'<iframe width="560" height="315" src="https://www.youtube.com/embed/66IM7Pb6JYc?t=68" title="YouTube video player" ' +
 		'frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; ' +
 		'web-share" allowfullscreen></iframe>',
 		'<iframe width="560" height="315" src="https://www.youtube.com/embed/mdo647DU8EE?t=44" title="YouTube video player" ' +
@@ -46,8 +46,8 @@ function bardTimeQuestion() {
 		'web-share" allowfullscreen></iframe>'
 	];
 	var parodyList = [
-		'Please to meet you can you guess my name do do da da',
-		'I came in like a FIREBALL'
+		'(1:09 start) The Electricity of my lightning now you will feel my blast',
+		'(0:44 start) I came in like a FIREBALL only just to destroy you all'
 	];
 	for (var i = 0 ; i < songList.length ; i++ ) {
 		input.append('<br><h1 id="songList' + i + '">' + songList[i] + '</h1>');
