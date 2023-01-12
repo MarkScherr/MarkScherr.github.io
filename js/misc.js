@@ -51,16 +51,84 @@ function bardTimeQuestion() {
 	}
 }
 
-function setClickFunctionForSpells(songListId, songName, embeddedHtmlForYouTube, newParodyLyrics) {
-		$("#" + songListId).on('click', function() {
+function spellsQuestion() {
+	var input = $('#inputDiv');
+	input.empty();
+	var spellLevelList = [
+		"Cantrip",
+		"Level 1",
+		"Level 2",
+		"Level 3",
+		"Level 4",
+		"Not Equipped"
+	];
+	for (var i = 0 ; i < spellLevelList.length ; i++ ) {
+		var spellLevelId = 'spellLevel' + i;
+		input.append('<br><h1 id="' + spellLevelId + '">' + spellLevelList[i] + '</h1>');
+		setSpellLevelClickFunction(spellLevelId, spellLevelList[i]);
+	}
+
+function setSpellLevelClickFunction(spellLevelId, spellLevelListItem) {
+
+  $('#' + spellLevelId).on("click", function() {
+    	spellsQuestion2(spellLevelListItem);
+    });
+}
+
+
+}
+
+var scrollPos;
+function spellsQuestion2(spellLevelListItem) {
+	var input = $('#inputDiv');
+	input.empty();
+	var spellListMap = new Map();
+	spellListMap.set("Cantrip", BARD_CANTRIP_LIST);
+	spellListMap.set("Level 1", BARD_SPELL_LEVEL_1);
+	spellListMap.set("Level 2", BARD_SPELL_LEVEL_1);
+	spellListMap.set("Level 3", BARD_SPELL_LEVEL_3);
+	spellListMap.set("Level 4", BARD_SPELL_LEVEL_4);
+	spellListMap.set("Not Equipped", BARD_SPELLS_NOT_EQUIPPED);
+
+	var currentSpellLevelListToDisplay = spellListMap.get(spellLevelListItem);
+	input.append('<h1>' + spellLevelListItem + ' Spells:</h1>');
+	for (var i = 0 ; i < currentSpellLevelListToDisplay.length ; i++ ) {
+		var spellListId = 'spellLevelListItem' + i;
+		var currentSpellName = currentSpellLevelListToDisplay[i];
+		input.append('<br><h2 id="' + spellListId + '">' + currentSpellName + '</h2>');
+		setClickFunctionForSpellsWithoutTunes(spellListId, currentSpellName, BARD_SPELL_DETAIL.get(currentSpellName), spellLevelListItem);
+	}    		
+	input.append('<div class="inline-div"><div id="returnButton" class="inline-div"><img src="img/marioReturn\.png" style="height:85px; margin-bottom:-5px;"></div></div>');
+	setReturnButtonClickEventForSpellsWithoutTunes();
+
+}
+function setClickFunctionForSpellsWithoutTunes(spellListId, spellName, spellDetail, spellLevelListItem) {
+		$("#" + spellListId).on('click', function() {
 			var input = $('#inputDiv');
 			input.empty();
-			input.append('<h1>' + songName + '</h1><br>');
-			input.append(embeddedHtmlForYouTube + '<br>');
-			input.append('<br><h2>' + newParodyLyrics + '</h2><br>');
+			input.append('<h1>' + spellName + ':</h1>');
+			input.append('<br><h2>' + spellDetail + '</h2><br>');
     		input.append('<div class="inline-div"><div id="returnButton" class="inline-div"><img src="img/marioReturn\.png" style="height:85px; margin-bottom:-5px;"></div></div>');
- 			setReturnButtonClickEventForSpells()
+ 			setReturnButtonClickEventForSpellsWithoutTunesToLevelLevel(spellLevelListItem);
+			$('html, body').animate({scrollTop: '0px'}, 300);
+ 			scrollPos = $(window).scrollTop();
 		});
+}
+
+
+function setReturnButtonClickEventForSpellsWithoutTunesToLevelLevel(spellLevelListItem) {
+  $("#returnButton").on("click", function() {
+  	$('html, body').animate({
+        scrollTop: scrollPos
+      }, 500);
+    	spellsQuestion2(spellLevelListItem);
+    });
+}
+
+function setReturnButtonClickEventForSpellsWithoutTunes() {
+  $("#returnButton").on("click", function() {
+    	spellsQuestion();
+    });
 }
 
 function setReturnButtonClickEventForSpells() {
