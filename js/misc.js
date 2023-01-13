@@ -66,8 +66,9 @@ function spellsQuestion() {
 		var spellLevelId = 'spellLevel' + i;
 		input.append('<br><h1 id="' + spellLevelId + '">' + spellLevelList[i] + '</h1>');
 		setSpellLevelClickFunction(spellLevelId, spellLevelList[i]);
-	}
-
+	}	
+ 
+}
 function setSpellLevelClickFunction(spellLevelId, spellLevelListItem) {
 
   $('#' + spellLevelId).on("click", function() {
@@ -76,7 +77,6 @@ function setSpellLevelClickFunction(spellLevelId, spellLevelListItem) {
 }
 
 
-}
 
 var scrollPos;
 function spellsQuestion2(spellLevelListItem) {
@@ -127,6 +127,7 @@ function setReturnButtonClickEventForSpellsWithoutTunesToLevelLevel(spellLevelLi
 
 function setReturnButtonClickEventForSpellsWithoutTunes() {
   $("#returnButton").on("click", function() {
+	$('html, body').animate({scrollTop: '0px'}, 300);
     	spellsQuestion();
     });
 }
