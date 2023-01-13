@@ -1,6 +1,4 @@
 	var BARD_CANTRIP_LIST = [
-		"Blade Ward",
-		"Dancing Lights",
 		"Friends",
 		"Mage Hand",
 		"Mending",
@@ -9,101 +7,54 @@
 		"Prestidigitation"
 	];
 	var BARD_SPELL_LEVEL_1 = [
-		"Charm Person",
-		"Color Spray",
-		"Command",
-		"Comprehend Languages",
-		"Detect Magic",
 		"Disguise Self",
 		"Dissonant Whispers",
-		"Distort Value",
-		"Earth Tremor",
-		"Faerie Fire",
 		"Feather Fall",
 		"Healing Word",
+		"Heroism",
 		"Identify",
-		"Illusory Script",
-		"Longstrider",
 		"Silent Image",
 		"Silvery Barbs",
 		"Sleep",
-		"Tasha\'s Hideous Laughter",
-		"Thunderwave",
-		"Unseen Servant"
+		"Tasha\'s Hideous Laughter"
 	];
 	var BARD_SPELL_LEVEL_2 = [
-		"Aid",
-		"Animal Messenger",
 		"Blindness/Deafness",
-		"Borrowed Knowledge",
 		"Calm Emotions",
-		"Cloud of Daggers",
-		"Crown of Madness",
-		"Detect Thoughts",
 		"Enhance Ability",
 		"Enlarge/Reduce",
-		"Enthrall",
 		"Gift of Gab",
-		"Heat Metal",
-		"Hold Person",
 		"Invisibility",
-		"Kinetic Jaunt",
 		"Knock",
-		"Lesser Restoration",
-		"Locate Animals or Plants",
-		"Locate Object",
-		"Magic Mouth",
-		"Mirror Image",
 		"Nathair\'s Mischief",
 		"Pyrotechnics",
 		"See Invisibility",
 		"Shatter",
 		"Silence",
-		"Skywrite",
-		"Warding Wind",
-		"Zone of Truth"
+		"Suggestion"
 	];
 	var BARD_SPELL_LEVEL_3 = [
 		"Bestow Curse",
-		"Catnap",
 		"Clairvoyance",
 		"Dispel Magic",
 		"Enemies Abound",
-		"Fast Friends",
-		"Fear",
 		"Feign Death",
 		"Fireball",
-		"Glyph of Warding",
-		"Hypnotic Pattern",
 		"Intellect Fortress",
 		"Leomund\'s Tiny Hut",
-		"Major Image",
-		"Mass Healing Word",
-		"Motivational Speech",
 		"Nondetection",
-		"Plant Growth",
-		"Sending",
-		"Slow",
-		"Speak with Dead",
-		"Speak with Plants",
-		"Stinking Cloud",
-		"Tongues"
+		"Plant Growth"
 	];
 	var BARD_SPELL_LEVEL_4 = [
-		"Charm Monster",
-		"Compulsion",
-		"Confusion",
 		"Dimension Door",
-		"Freedom of Movement",
-		"Greater Invisibility",
-		"Hallucinatory Terrain",
-		"Locate Creature",
 		"Phantasmal Killer",
 		"Polymorph",
 		"Raulothim\'s Psychic Lance"
 	];
 	var BARD_SPELLS_NOT_EQUIPPED = [
 		":cantrips:",
+		"Blade Ward",
+		"Dancing Lights",
 		"Light",
 		"Thunderclap",
 		"True Strike",
@@ -111,12 +62,62 @@
 		":LEVEL1 SPELLS:",
 		"Animal Friendship",
 		"Bane",
+		"Charm Person",
+		"Color Spray",
+		"Command",
+		"Comprehend Languages",
 		"Cure Wounds",
-		"Heroism",
+		"Detect Magic",
+		"Distort Value",
+		"Earth Tremor",
+		"Faerie Fire",
+		"Illusory Script",
+		"Longstrider",
 		"Speak with Animals",
+		"Thunderwave",
+		"Unseen Servant",
 		":LEVEL2 SPELLS:",
+		"Aid",
+		"Animal Messenger",
+		"Borrowed Knowledge",
+		"Cloud of Daggers",
+		"Crown of Madness",
+		"Detect Thoughts",
+		"Enthrall",
+		"Heat Metal",
+		"Hold Person",
+		"Kinetic Jaunt",
+		"Lesser Restoration",
+		"Locate Animals or Plants",
+		"Locate Object",
+		"Magic Mouth",
+		"Mirror Image",
+		"Skywrite",
+		"Warding Wind",
+		"Zone of Truth",
 		":LEVEL3 SPELLS:",
-		":LEVEL4 SPELLS:"
+		"Catnap",
+		"Fast Friends",
+		"Fear",
+		"Glyph of Warding",
+		"Hypnotic Pattern",
+		"Major Image",
+		"Mass Healing Word",
+		"Motivational Speech",
+		"Sending",
+		"Slow",
+		"Speak with Dead",
+		"Speak with Plants",
+		"Stinking Cloud",
+		"Tongues",
+		":LEVEL4 SPELLS:",
+		"Charm Monster",
+		"Compulsion",
+		"Confusion",
+		"Freedom of Movement",
+		"Greater Invisibility",
+		"Hallucinatory Terrain",
+		"Locate Creature"
 	];
 
 
@@ -950,7 +951,7 @@ duration as described above, even if you can’t see it, but it must still be wi
 		`);
 	BARD_SPELL_DETAIL.set("Enhance Ability",
 		`
-asting Time: 1 action<br>
+casting Time: 1 action<br>
 Range: Touch<br>
 Components: V, S, M (fur or a feather from a beast)<br>
 Duration: Concentration, up to 1 hour
@@ -1221,6 +1222,39 @@ to move in a random direction.<br>
 4	Drops of molasses appear and hover in the cube, turning it into difficult terrain until the 
 start of your next turn.<br>
 		`);
+	BARD_SPELL_DETAIL.set("phantasmal force",
+		`
+Casting Time: 1 action<br>
+Range: 60 feet<br>
+Components: V, S, M (a bit of fleece)<br>
+Duration: Concentration, up to 1 minute
+<br><br>
+You craft an illusion that takes root in the mind of a creature that you can see within range. 
+The target must make an Intelligence saving throw. On a failed save, you create a phantasmal object, 
+creature, or other visible phenomenon of your choice that is no larger than a 10-foot cube and that 
+is perceivable only to the target for the duration. This spell has no effect on undead or constructs.
+<br>
+The phantasm includes sound, temperature, and other stimuli, also evident only to the creature.
+
+The target can use its action to examine the phantasm with an Intelligence (Investigation) 
+check against your spell save DC. If the check succeeds, the target realizes that the phantasm 
+is an illusion, and the spell ends.
+<br><br>
+While a target is affected by the spell, the target treats the phantasm as if it were real. 
+The target rationalizes any illogical outcomes from interacting with the phantasm. For example, 
+a target attempting to walk across a phantasmal bridge that spans a chasm falls once it steps onto 
+the bridge. If the target survives the fall, it still believes that the bridge exists and comes up 
+with some other explanation for its fall; it was pushed, it slipped, or a strong wind might have 
+knocked it off.
+<br><br>
+An affected target is so convinced of the phantasm’s reality that it can even take d
+amage from the illusion. A phantasm created to appear as a creature can attack the target. 
+Similarly, a phantasm created to appear as fire, a pool of acid, or lava can burn the target. 
+Each round on your turn, the phantasm can deal 1d6 psychic damage to the target if it is in 
+the phantasm’s area or within 5 feet of the phantasm, provided that the illusion is of a creature 
+or hazard that could logically deal damage, such as by attacking. The target perceives the damage 
+as a type appropriate to the illusion.
+		`);
 	BARD_SPELL_DETAIL.set("Pyrotechnics",
 		`
 Casting Time: 1 action<br>
@@ -1287,6 +1321,30 @@ Duration: Concentration, up to 1 day
 You cause up to ten words to form in a part of the sky you can see. 
 The words appear to be made of cloud and remain in place for the spell’s duration. 
 The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early.
+		`);
+	BARD_SPELL_DETAIL.set("Suggestion",
+		`
+Casting Time: 1 action<br>
+Range: 30 feet<br>
+Components: V, M (a snake’s tongue and either a bit of honeycomb or a drop of sweet oil)<br>
+Duration: Concentration, up to 8 hours
+<br><br>
+You suggest a course of activity (limited to a sentence or two) and magically influence a 
+creature you can see within range that can hear and understand you. Creatures that can’t be 
+charmed are immune to this effect. The suggestion must be worded in such a manner as to make 
+the course of action sound reasonable. Asking the creature to stab itself, throw itself onto a 
+spear, immolate itself, or do some other obviously harmful act ends the spell.
+<br><br>
+The target must make a Wisdom saving throw. On a failed save, it purses the course of 
+action you described to the best of its ability. The suggested course of action can 
+continue for the entire duration. If the suggested activity can be completed in a shorter 
+time, the spell ends when the subject finishes what it was asked to do.
+<br><br>
+You can also specify conditions that will trigger a special activity during the duration. 
+For example, you might suggest that a knight give her warhorse to the first beggar she meets. 
+If the condition isn’t met before the spell expires, the activity isn’t preformed.
+
+If you or any of your companions damage the target, the spell ends.
 		`);
 	BARD_SPELL_DETAIL.set("Warding Wind",
 		`
