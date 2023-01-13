@@ -42,6 +42,7 @@
 		"Fireball",
 		"Intellect Fortress",
 		"Leomund\'s Tiny Hut",
+		"Lightning Bolt",
 		"Nondetection",
 		"Plant Growth"
 	];
@@ -155,7 +156,7 @@ Casting Time: 1 action<br>
 Range: Self<br>
 Components: S, M (a small amount of makeup applied to the face as this spell is cast)<br>
 Duration: Concentration, up to 1 minute
-<br><br>
+<br><br> 
 For the duration, you have advantage on all Charisma checks directed at one creature of your 
 choice that isn't hostile toward you. When the spell ends, the creature realizes that you used 
 magic to influence its mood and becomes hostile toward you. A creature prone to violence might 
@@ -200,7 +201,6 @@ Casting Time: 1 minute<br>
 Range: Touch<br>
 Components: V, S, M (two lodestones)<br>
 Duration: Instantaneous<br><br>
-
 This spell repairs a single break or tear in an object you touch, such as a broken chain link, 
 two halves of a broken key, a torn cloak, or a leaking wineskin. As long as the break or tear 
 is no larger than 1 foot in any dimension, you mend it, leaving no trace of the former damage.
@@ -216,7 +216,6 @@ Casting Time: 1 action<br>
 Range: 120 feet<br>
 Components: V, S, M (a short piece of copper wire)<br>
 Duration: 1 round<br><br>
-
 You point your finger toward a creature within range and whisper a message. 
 The target (and only the target) hears the message and can reply in a whisper that only you can hear.
 <br><br>
