@@ -85,7 +85,7 @@ function spellsQuestion2(spellLevelListItem) {
 	var spellListMap = new Map();
 	spellListMap.set("Cantrip", BARD_CANTRIP_LIST);
 	spellListMap.set("Level 1", BARD_SPELL_LEVEL_1);
-	spellListMap.set("Level 2", BARD_SPELL_LEVEL_1);
+	spellListMap.set("Level 2", BARD_SPELL_LEVEL_2);
 	spellListMap.set("Level 3", BARD_SPELL_LEVEL_3);
 	spellListMap.set("Level 4", BARD_SPELL_LEVEL_4);
 	spellListMap.set("Not Equipped", BARD_SPELLS_NOT_EQUIPPED);
