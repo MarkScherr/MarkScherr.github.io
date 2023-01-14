@@ -102,6 +102,21 @@ function spellsQuestion2(spellLevelListItem) {
 	setReturnButtonClickEventForSpellsWithoutTunes();
 
 }
+
+function setClickFunctionForSpells(songListId, spellName, youTubeEmbed, parodyLyrics) {
+		$("#" + songListId).on('click', function() {
+			var input = $('#inputDiv');
+			input.empty();
+			input.append('<h1>' + spellName + ':</h1>');
+			input.append(youTubeEmbed);
+			input.append('<br><h2>' + parodyLyrics + '</h2><br>');
+    		input.append('<div class="inline-div"><div id="returnButton" class="inline-div"><img src="img/marioReturn\.png" style="height:85px; margin-bottom:-5px;"></div></div>');
+ 			setReturnButtonClickEventForSpells();
+			$('html, body').animate({scrollTop: '0px'}, 300);
+ 			scrollPos = $(window).scrollTop();
+		});
+}
+
 function setClickFunctionForSpellsWithoutTunes(spellListId, spellName, spellDetail, spellLevelListItem) {
 		$("#" + spellListId).on('click', function() {
 			var input = $('#inputDiv');
